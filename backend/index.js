@@ -142,5 +142,16 @@ var getLinks = function(title){
 
 };
 
+var getGoogleImage = function(title){
+
+  // var params = {
+  //   tbm: 'isch',
+  //   ''
+  // }
+
+  // var baseUrl = https://www.google.co.uk/search?q=bird&tbm=isch
+
+};
+
 /* Models */
 // var Client = require('./models/client');

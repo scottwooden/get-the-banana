@@ -22,7 +22,9 @@ define([
 
       if(matches.length == 1) return _.first(matches);
 
-      regex.compile('^' + string + '$');
+      console.log("matches", matches);
+
+      regex.compile('^' + string + '$', 'i');
 
       var match = _.find(matches, function(match){
         return regex.test(match);
