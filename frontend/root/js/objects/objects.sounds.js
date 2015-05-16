@@ -4,11 +4,12 @@ define([
 
     return Master.extend({
 
-      sounds: {
-          { src:"asset0.ogg", id:"example" },
-          { src:"asset1.ogg", id:"1" },
-          { src:"asset2.mp3", id:"works" }
-      },
+      sounds: [
+        { src: "correct_1.mp3", id: "correct" },
+        { src: "Game-over-sound-effect.mp3", id: "lose" },
+        { src: "Jackpot.wav", id: "win" },
+        { src: "Wrong Answer 2.wav", id: "incorrect" }
+      ],
 
       initialize: function(){
 
@@ -24,7 +25,7 @@ define([
           console.log("done");
         }); 
 
-        createjs.Sound.registerSounds(sounds, assetPath);
+        createjs.Sound.registerSounds(this.sounds, "audio/");
 
       },
 
