@@ -1,0 +1,19 @@
+- add input
+- Fix bugs with search api
+- add google image backup search
+- figure out wiki redirects (e.g cheeks)
+- add input word to correct/incorrect
+- add scoring logic
+- Add logic for winning
+- incorrect / correct overlay
+- loading overlay
+- Create winning screen
+- add saving user to db
+- add coundown logic
+- add countdown functionality
+- fix game page styling
+- add speech api
+
+----------------------
+- add transitions
+- add sound
