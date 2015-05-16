@@ -15,7 +15,7 @@ define([
       'Fruit',
       'Tractor',
       'Owl',
-      'Hacker'
+      'Hacker',
       'Buttocks',
       'Donkey',
       'London Underground',
