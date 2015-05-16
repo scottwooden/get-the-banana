@@ -91,6 +91,15 @@ define([
 
     },
 
+    winningTrigger: function(){
+
+      var self = this;
+
+      $('.answer-feedback').toggleClass('active win');
+      setTimeout( function() { Globals.Router.navigate("result");}, 500);
+
+    },
+
     countdown: function() {
 
     	var self = this;
@@ -125,7 +134,7 @@ define([
         var word = Globals.User.words.last();
 
         word.fetch().done(function(){
-        	self.renderContent();
+        self.renderContent();
           self.renderWordTrail();
             // self.updateSpeechEvents();
         });
@@ -136,7 +145,17 @@ define([
 
     resetCountdown: function() {
 
-        console.log('New Word');
+        var self = this;
+
+        $('.timer .inner').stop();
+
+        $('.timer .inner').css({"width": "100%"});
+
+        $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
+
+            self.resetCountdown();
+
+        });
 
     },
 
