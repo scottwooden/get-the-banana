@@ -199,3 +199,62 @@ section.timer {
 	}
 
 }
+
+.answer-feedback {
+
+	transition: opacity 0.3s;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	color: $white;
+	background: rgba(0,0,0,0.4);
+	pointer-events: none;
+	opacity: 0;
+	text-align: center;
+	padding-top: 100px;
+
+	h1 {	
+
+		font-size: 100px;
+		text-shadow: 0px 3px 11px rgba(150, 150, 150, 1);
+
+	}
+
+	.correct, .wrong {
+
+		transition: all 0.3s;
+		transform: scale(0.3);
+		opacity: 0;
+
+	}
+
+	&.active {
+
+		opacity: 1;
+		
+	}
+
+	&.correct {
+
+		.correct {
+
+			transform: scale(1);
+			opacity: 1;
+			
+		}
+
+	}
+
+	&.wrong {
+
+		.wrong {
+
+			transform: scale(1);
+			opacity: 1;
+			
+		}
+
+	}
+
+}
