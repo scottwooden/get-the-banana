@@ -1,4 +1,5 @@
 var Hapi = require("hapi");
+var colors = require('colors');
 
 /* Create a server */
 var server = new Hapi.Server(8000);
@@ -15,6 +16,10 @@ server.route({
     }
   }
 });
+
+server.start();
+
+console.log(colors.green("Started server"));
 
 module.exports = server;
 

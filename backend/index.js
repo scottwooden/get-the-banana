@@ -1,5 +1,7 @@
-var fs = require('fs');
 var colors = require('colors');
+var request = require('request');
+var _ = require('underscore');
+var Q = require('q');
 
 /* Mongoose */ 
 var mongoose = require('mongoose');
@@ -8,14 +10,170 @@ var mongoose = require('mongoose');
 /* Hapi */
 var server = require('./server');
 
+
+var baseUrl = "http://en.wikipedia.org/w/api.php?";
+
+var defaults = {
+  format: "json",
+  action: "query"
+};
+
+server.route({
+  method: "GET",
+  path: "/api/search/{title}",
+  handler: function(req, reply){
+
+    getPage(req.params.title).then(function(data){
+      return reply(data);
+    });
+
+
+  // getLinks("Albert Einstein").then(function(links){
+  //   console.log("!!!!");
+  //   console.log("links", links);
+  //   return reply(links);
+  // });
+
+  // .then(function(){
+  //   return reply("BOOM");
+  // });
+
+  return;
+
+    // http://en.wikipedia.org/w/api.php?format=json&action=query&titles=File:1919%20eclipse%20positive.jpg&prop=imageinfo
+
+  }
+});
+
+
+var getPage = function(title){
+
+  var deferred = Q.defer();
+
+  var promises = [];
+
+  promises.push(getTitle(title));
+  promises.push(getImage(title));
+  promises.push(getLinks(title));
+
+  Q.all(promises).then(function(data){
+
+    data = _.reduce(data, function(object, value, key){
+      return _.extend(object, value);
+    }, {});
+
+    return deferred.resolve(data);
+
+  });
+
+  return deferred.promise;
+
+};
+
+var getTitle = function(title){
+
+  var params = _.extend({}, defaults, {
+    prop: "info",
+    inprop: "displaytitle",
+    titles: title
+  });
+
+  var deferred = Q.defer();
+
+  request(baseUrl, { qs: params, json: true }, function(err, response, body){
+
+    if(err) throw(err);
+
+    // if(!_.isEmpty(body.query.pages)) // No results
+
+    var page = _.first(_.values(body.query.pages));
+    
+    deferred.resolve({ title: page.displaytitle });
+    
+  });
+
+  return deferred.promise;
+
+};
+
+var getImage = function(title){
+
+  var params = _.extend({}, defaults, {
+    prop: "pageimages",
+    piprop: "original",
+    titles: title
+  });
+
+  var deferred = Q.defer();
+
+  request(baseUrl, {qs: params, json: true}, function(err, response, body){
+    
+    if(err) throw(err);
+
+    // if(!_.isEmpty(body.query.pages)) // No results
+
+    var page = _.first(_.values(body.query.pages));
+
+    deferred.resolve({ image: (page.thumbnail ? page.thumbnail.original : false) });
+
+  });
+
+  return deferred.promise;
+
+};
+
+var getLinks = function(title){
+
+  var params = _.extend({}, defaults, {
+    titles: title,
+    prop: "links",
+    plnamespace: 0, // Only get links from main content
+    pllimit: 500 // Ammount of results to load
+  });
+
+  var deferred = Q.defer();
+
+  var links = [];
+
+  var load = function(resolve, plcontinue){
+
+    if(plcontinue) params.plcontinue = plcontinue;
+
+    request(baseUrl, { qs: params, json: true }, function(err, response, body){
+
+      if(err) throw(err);
+      // if(!_.isEmpty(body.query.pages)) // No results
+
+      var page = _.first(_.values(body.query.pages));
+
+      // If links returned, concat into links array
+      if(page.links.length){
+
+        var titles = _.pluck(page.links, 'title');
+        links = links.concat(titles);
+
+      }
+
+      if(body['query-continue']){
+
+        // If continue value is provided, make another request with this value
+        var plcontinue = body['query-continue'].links.plcontinue;
+        return load(resolve, plcontinue);
+
+      } else {
+        // Else resolve promise and pass data
+        deferred.resolve({ links: links });
+      }
+
+    });
+
+  };
+
+  load();
+
+  return deferred.promise;
+
+};
+
 /* Models */
 // var Client = require('./models/client');
-
-var initialize = function(){
-
-  // Start server
-  server.start();
-
-  console.log(colors.green("Started server"));
-
-}();
