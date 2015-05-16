@@ -1,0 +1,25 @@
+{
+  "name": "Art_Hackathon",
+  "version": "0.0.0-1",
+  "devDependencies": {
+    "bower": "~1.3.9",
+    "colors": "^1.0.3",
+    "gulp": "~3.6.1",
+    "gulp-livereload": "^2.1.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "1.1.0",
+    "require-dir": "^0.1.0",
+    "underscore": "^1.7.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "hapi": "^7.2.0",
+    "hapi-auth-cookie": "^1.3.2",
+    "mongoose": "^4.0.3"
+  },
+  "scripts": {
+    "start": "node backend/index.js"
+  }
+}
