@@ -141,6 +141,7 @@
 		}
 
 		img {
+			background: $white;
 			height: 300px;
 			border: 10px solid $white;
 			-ms-transform: rotate(3deg); /* IE 9 */
@@ -176,13 +177,19 @@ section.timer {
 
 	.inner {
 
-		transition: width 0.4s;
-		width: 80%;
+		width: 100%;
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		background: $green;
 		height: 60px;
+
+		&.counting-down {
+
+			transition: width 30s linear;
+			width: 0;
+
+		}
 
 	}
 

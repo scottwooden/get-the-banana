@@ -1,3 +1,5 @@
+
+- add input DONE
 - Fix bugs with search api
 - fix case sensitive search
 - add google image backup search
@@ -5,7 +7,7 @@
 - add input word to correct/incorrect
 - add scoring logic
 - Add logic for winning
-- incorrect / correct overlay
+- incorrect / correct overlay DONE
 - loading overlay
 - Create winning screen
 - add saving user to db
