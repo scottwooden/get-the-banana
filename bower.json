@@ -11,7 +11,8 @@
     "requirejs-text": "~2.0.12",
     "requirejs-plugins": "~1.0.2",
     "gsap": "~1.16.1",
-    "annyang": "~1.6.0"
+    "annyang": "~1.6.0",
+    "SoundJS": "~0.6.0"
   },
   "private": true
 }
