@@ -12,16 +12,16 @@ define([
     },
 
     startWords: [
-      // 'Fruit',
-      // 'Tractor',
-      // 'Owl',
-      // 'Hackathon',
-      // 'Buttocks',
-      // 'Donkey',
-      // 'London Underground',
-      // 'Red',
+      'Fruit',
+      'Tractor',
+      'Owl',
+      'Hackathon',
+      'Buttocks',
+      'Donkey',
+      'London Underground',
+      'Red',
       'North Pole',
-      // 'Tyrannosaurus'
+      'Tyrannosaurus'
     ],
 
     initialize: function(){
