@@ -135,6 +135,15 @@ var getLinks = function(title){
         return load(resolve, plcontinue);
 
       } else {
+
+        // Create regex to remove 'List of' links
+        var regex = new RegExp('^List of');
+
+        // Filter using regex
+        links = _.reject(links, function(link){
+          return regex.test(link);
+        });
+
         // Else resolve promise and pass data
         deferred.resolve({ links: links });
       }
