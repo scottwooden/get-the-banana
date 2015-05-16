@@ -8,19 +8,16 @@ define([
   	urlRoot: "api/users",
 
     startWords: [
-      'Fruit',
-      'Tongan music notation',
-      'Tractor',
-      'Owl',
-      'Spiderman',
-      'Hackathon',
-      'Buttocks',
-      'Donkey',
-      'Natural_History_Museum',
-      'London_Underground',
-      'Red',
+      // 'Fruit',
+      // 'Tractor',
+      // 'Owl',
+      // 'Hackathon',
+      // 'Buttocks',
+      // 'Donkey',
+      // 'London Underground',
+      // 'Red',
       'North Pole',
-      'Tyrannosaurus'
+      // 'Tyrannosaurus'
     ],
 
     initialize: function(){

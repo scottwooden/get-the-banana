@@ -8,7 +8,9 @@ define([
 
     urlRoot: "/api/search",
 
-    checkLink: function(string) {
+    checkLink: function(string){
+
+      if(!string) return;
 
       var regex = new RegExp('\\b' + string + '\\b', 'i');
 
@@ -16,9 +18,17 @@ define([
         return regex.test(link);
       });
 
-      if(!matches.length || matches.length > 1) return false;
+      if(!matches.length) return;
 
-      return _.first(matches);
+      if(matches.length == 1) return _.first(matches);
+
+      regex.compile('^' + string + '$');
+
+      var match = _.find(matches, function(match){
+        return regex.test(match);
+      });
+
+      return match;
 
     }
 
