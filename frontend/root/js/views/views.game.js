@@ -30,7 +30,7 @@ define([
         this._super();
 
         this.$content = this.$('.player-current-word');
-        this.$trail = this.$('.player-one-word-trail');
+        this.$trail = this.$('.player-one-word-trail ul');
 
     },
 
