@@ -75,13 +75,19 @@ define([
 
     correctMessage: function(){
 
-      console.log("correct");
+      $('.answer-feedback').toggleClass('active correct');
+
+       setTimeout( function() { $('.answer-feedback').toggleClass('active correct'); }, 800);
 
     },
 
     incorrectMessage: function(){
 
-      console.log("incorrect");
+      var self = this;
+
+      $('.answer-feedback').toggleClass('active wrong');
+
+      setTimeout( function() { $('.answer-feedback').toggleClass('active wrong'); }, 800);
 
     },
 
@@ -130,7 +136,6 @@ define([
     renderContent: function(word) {
 
         var self = this;
-
         var data = Globals.User.words.last().toJSON();
 
         this.$content.html(this.templates.content({ data: data }));
