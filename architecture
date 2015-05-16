@@ -1,0 +1,25 @@
+frontend
+==========
+
+model.user
+
+#splash
+
+  view.splash
+
+#game
+
+  view.game
+
+#results
+
+  view.results
+
+
+backend
+=========
+
+create user
+update user -> words / time
+
+get visualisation data

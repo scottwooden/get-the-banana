@@ -4,13 +4,14 @@ img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr,
 dl, dt, dd, ol, ul, li, fieldset, form, lDin, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figure, figcaption, hgroup,
-menu, footer, header, nav, section, summary, time, mark, audio, video
-  margin: 0
-  padding: 0
-  border: 0
-  list-style: none
-  text-decoration: none
-
+menu, footer, header, nav, section, summary, time, mark, audio, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+}
 article, aside, canvas, figure, figure img, figcaption, hgroup,
-footer, header, nav, section, audio, video, section.clients, section.contact, section.jobs
-  display: block
+footer, header, nav, section, audio, video, section.clients, section.contact, section.jobs{
+  display: block;
+}

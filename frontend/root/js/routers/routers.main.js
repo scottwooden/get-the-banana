@@ -1,19 +1,40 @@
 define([
   'globals',
   'routers/routers.master',
-  'views/views.home',
-], function(Globals, Master, Home){
+  'views/views.splash',
+  'views/views.game',
+  'views/views.result',
+], function(Globals, Master, SplashView, GameView, ResultView){
 
   return Master.extend({
 
     routes: {
-      '*actions' : "home"
+      'splash' : "splash",
+      'game' : "game",
+      'result' : "result",
+      '*actions' : "splash"
     },
 
-    home: function(){
+    splash: function(){
     
       this.newPage = {
-        view: new Home()
+        view: new SplashView()
+      };
+
+    },
+
+    game: function(){
+    
+      this.newPage = {
+        view: new GameView()
+      };
+
+    },
+
+    result: function(){
+    
+      this.newPage = {
+        view: new ResultView()
       };
 
     }

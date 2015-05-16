@@ -1,8 +1,8 @@
 var colors = require('colors');
 var gulp  = require('gulp');
 
-gulp.task('watch', ['sass'], function(){
+gulp.task('watch', ['scss'], function(){
 
-  gulp.watch('frontend/**/*.sass', ['sass']);
+  gulp.watch('frontend/**/*.scss', ['scss']);
 
 });
