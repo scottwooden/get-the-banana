@@ -7,17 +7,22 @@ define([
 
   	urlRoot: "api/users",
 
+    defaults: {
+      score: 0
+    },
+
     startWords: [
-      'Fruit',
-      'Tractor',
-      'Owl',
-      'Hackathon',
-      'Buttocks',
-      'Donkey',
-      'London Underground',
-      'Red',
-      'North Pole',
-      'Tyrannosaurus'
+      // 'Fruit',
+      // 'Tractor',
+      // 'Owl',
+      // 'Hackathon',
+      // 'Buttocks',
+      // 'Donkey',
+      // 'London Underground',
+      // 'Red',
+      // 'North Pole',
+      // 'Tyrannosaurus'
+      'Animal coloration'
     ],
 
     initialize: function(){
@@ -37,7 +42,7 @@ define([
       return this.words.pluck('title');
 
     },
-
+    
   });
 
 });

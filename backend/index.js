@@ -27,20 +27,7 @@ server.route({
       return reply(data);
     });
 
-
-  // getLinks("Albert Einstein").then(function(links){
-  //   console.log("!!!!");
-  //   console.log("links", links);
-  //   return reply(links);
-  // });
-
-  // .then(function(){
-  //   return reply("BOOM");
-  // });
-
-  return;
-
-    // http://en.wikipedia.org/w/api.php?format=json&action=query&titles=File:1919%20eclipse%20positive.jpg&prop=imageinfo
+    return;
 
   }
 });
@@ -52,8 +39,7 @@ var getPage = function(title){
 
   var promises = [];
 
-  promises.push(getTitle(title));
-  promises.push(getImage(title));
+  promises.push(getInfo(title));
   promises.push(getLinks(title));
 
   Q.all(promises).then(function(data){
@@ -70,12 +56,14 @@ var getPage = function(title){
 
 };
 
-var getTitle = function(title){
+var getInfo = function(title){
 
   var params = _.extend({}, defaults, {
-    prop: "info",
+    prop: "info|pageimages",
     inprop: "displaytitle",
-    titles: title
+    piprop: "original",
+    titles: title,
+    redirects: ""
   });
 
   var deferred = Q.defer();
@@ -87,35 +75,13 @@ var getTitle = function(title){
     // if(!_.isEmpty(body.query.pages)) // No results
 
     var page = _.first(_.values(body.query.pages));
+
+    var data = { title: page.displaytitle };
+
+    if(page.thumbnail) data.image = page.thumbnail.original;
     
-    deferred.resolve({ title: page.displaytitle });
+    deferred.resolve(data);
     
-  });
-
-  return deferred.promise;
-
-};
-
-var getImage = function(title){
-
-  var params = _.extend({}, defaults, {
-    prop: "pageimages",
-    piprop: "original",
-    titles: title
-  });
-
-  var deferred = Q.defer();
-
-  request(baseUrl, {qs: params, json: true}, function(err, response, body){
-    
-    if(err) throw(err);
-
-    // if(!_.isEmpty(body.query.pages)) // No results
-
-    var page = _.first(_.values(body.query.pages));
-
-    deferred.resolve({ image: (page.thumbnail ? page.thumbnail.original : false) });
-
   });
 
   return deferred.promise;
@@ -128,7 +94,8 @@ var getLinks = function(title){
     titles: title,
     prop: "links",
     plnamespace: 0, // Only get links from main content
-    pllimit: 500 // Ammount of results to load
+    pllimit: 500, // Ammount of results to load
+    redirects: ""
   });
 
   var deferred = Q.defer();
@@ -172,6 +139,17 @@ var getLinks = function(title){
   load();
 
   return deferred.promise;
+
+};
+
+var getGoogleImage = function(title){
+
+  // var params = {
+  //   tbm: 'isch',
+  //   ''
+  // }
+
+  // var baseUrl = https://www.google.co.uk/search?q=bird&tbm=isch
 
 };
 
