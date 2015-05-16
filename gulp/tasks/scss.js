@@ -4,7 +4,7 @@ var prefix = require('gulp-autoprefixer');
 var livereload = require('gulp-livereload');
 
 gulp.task('scss', function() {
-  gulp.src('./frontend/root/sass/{,**/}*.{scss,sass}')
+  gulp.src('./frontend/root/scss/{,**/}*.{scss,sass}')
   .pipe(sass({
     errLogToConsole: true,
     // outputStyle: 'compressed'
