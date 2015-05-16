@@ -12,6 +12,8 @@ require([
       "templates": "../templates",
       "views": "views",
       "models": "models",
+      "collections": "collections",
+      "objects": "objects",
     }
 
   });
@@ -26,10 +28,11 @@ require([
     // Initialize scripts
     'routers/routers.main',
     'models/models.user',
+    'objects/objects.sounds',
     'backbone-super',
     'annyang',
     'soundJS',
-  ], function(Globals, $, _, Backbone, Router, UserModel){
+  ], function(Globals, $, _, Backbone, Router, UserModel, SoundObject){
 
     window.Globals = Globals;
 
@@ -38,6 +41,8 @@ require([
     Globals.Events = _.extend({}, Backbone.Events);
 
     Globals.User = new UserModel();
+
+    Globals.Sounds = new SoundObject();
 
     Backbone.history.start({ pushState: false });
 
