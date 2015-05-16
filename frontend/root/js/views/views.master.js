@@ -108,6 +108,8 @@ define([
 
     _cacheTemplates: function(){
 
+      console.log("cahcing")
+
       if(!this.templates || _.isEmpty(this.templates)) return;
 
       for (var template in this.templates){

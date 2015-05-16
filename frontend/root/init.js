@@ -25,12 +25,18 @@ require([
     'backbone',
     // Initialize scripts
     'routers/routers.main',
+    'models/models.user',
     'backbone-super',
-  ], function(Globals, $, _, Backbone, Router){
+    'annyang',
+  ], function(Globals, $, _, Backbone, Router, UserModel){
+
+    window.Globals = Globals;
 
     Globals.Router = new Router();
 
     Globals.Events = _.extend({}, Backbone.Events);
+
+    Globals.User = new UserModel();
 
     Backbone.history.start({ pushState: false });
 

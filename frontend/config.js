@@ -10,6 +10,7 @@ requirejs.config({
     "jquery-mobile-events": "../../lib/jQuery-Mobile-Events/src/jquery.mobile-events.min",
     "text": "../../lib/requirejs-text/text",
     "json": '../../lib/requirejs-plugins/src/json',
+    "annyang": '../../lib/annyang/annyang',
     
   },
 
@@ -17,7 +18,8 @@ requirejs.config({
     "underscore": { exports: "_" },
     "jquery": { exports: "$" },
     "jquery-mobile-events": { deps: ["jquery"] },
-    "backbone": { exports: "Backbone", deps: ["underscore", "jquery"] }
+    "backbone": { exports: "Backbone", deps: ["underscore", "jquery"] },
+    "annyang": { exports: "annyang" }
   }
   
 });

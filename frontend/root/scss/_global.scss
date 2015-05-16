@@ -1,3 +1,60 @@
-body{
-  background: red;
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,900,700);
+
+$yellow : #FBCC34;
+$green 	: #60E2C5;
+$black 	: #212121;
+$white 	: #fff;
+
+html, body {
+
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+
 }
+
+body{
+  
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+
+  background: $yellow;
+
+}
+
+// Typography
+
+h3 {
+	font-size: 1.8em;
+}
+
+// Links
+
+a.btn-primary {	
+	-webkit-font-smoothing: antialiased;
+	transition: all 0.25s;
+	padding: 10px 15px;
+	background: $yellow;
+	border-radius: 6px;
+	text-align: center;
+	display: inline-block;
+	font-weight: 700;
+	font-size: 1.6em;
+	color: $black;
+	border: 4px solid $black;
+
+	&:hover {
+
+		background: $white;
+		border-color: $white;
+
+	}
+
+}
+
+// Helpers 
+
+.text-center {
+	text-align: center;
+}
+

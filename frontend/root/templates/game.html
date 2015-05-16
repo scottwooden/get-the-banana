@@ -1,1 +1,58 @@
-Game
+<div class="start-overlay">
+
+	<div class="contain text-center">
+
+		<h1>HOW TO PLAY</h1>
+		<br>
+		<p>The object of the game is to get to the word BANANA by word association. The fewer the words the better you are! Enter your name below and begin!</p>
+
+		<input type="text" class="user-name-input" placeholder="Your Name" id="user-name-input">
+		<br>
+		<a href="#" class="btn-primary start">LET'S PLAY!</a>
+
+	</div>
+
+	<div class="countdown">
+		3
+	</div>
+
+</div>
+
+<section class="game container">
+
+	<header id="user-stats">
+		<span id="user-score">0</span>
+		<h1 id="user-name"></h1>
+	</header>
+
+	<div class="main-game-panel">
+
+		<div class="player-one-word-trail">
+			<ul>
+				<li class="correct"><span class="circle"></span><span class="word">Jonny Cash</span></li>
+				<li class="correct"><span class="circle"></span><span class="word">Guitar</span></li>
+				<li class="current"><span class="circle"></span><span class="word">Manufacture</span></li>
+				
+				
+				<li class="banana">BANANA <img src="images/banana.gif"></li>
+			</ul>
+		</div>
+
+		<div class="player-current-word text-center">
+			<h1 id="word-title">MARKET</h1>
+			<br><br>
+			<img id="word-image" src="http://globe-views.com/dcim/dreams/market/market-05.jpg">
+			<input type="hidden" id="word-links">
+		</div>
+
+	</div>
+	
+</section>
+
+<section class="timer text-center">
+
+	<span>GET TO BANANA WITH MARKET</span>
+
+	<div class="inner"></div>
+
+</section>
