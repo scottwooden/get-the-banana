@@ -16,13 +16,7 @@ define([
 
     events: {
     	'click .start-overlay .start': 'clickStart',
-      'keydown .answer-input': 'inputKeydown'
-    },
-
-    initialize: function(){
-
-    	this._super();
-
+      'keydown .input-answer': 'inputKeydown'
     },
 
     render: function(){
@@ -66,10 +60,28 @@ define([
       if(e.which !== 13) return;
 
       var value = $(e.currentTarget).val();
+      var word = Globals.User.words.last();            
 
-      var word = Globals.User.word.last();            
+      var match = word.checkLink(value);
 
-      word.checkLink(value);
+      if(match){
+        this.correctMessage();
+        this.selectWord(match);
+      } else {
+        this.incorrectMessage();
+      }
+
+    },
+
+    correctMessage: function(){
+
+      console.log("correct");
+
+    },
+
+    incorrectMessage: function(){
+
+      console.log("incorrect");
 
     },
 
@@ -108,7 +120,7 @@ define([
 
         word.fetch().done(function(){
         	self.renderContent();
-            self.renderWordTrail();
+          self.renderWordTrail();
             // self.updateSpeechEvents();
         });
 
@@ -122,11 +134,6 @@ define([
         var data = Globals.User.words.last().toJSON();
 
         this.$content.html(this.templates.content({ data: data }));
-
-        this.$('.test-links li').on('click', function(){
-            var item = $(this).html();
-            self.selectWord(item);
-        });
 
     }, 
 
