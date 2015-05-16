@@ -22,8 +22,6 @@ define([
 
       if(matches.length == 1) return _.first(matches);
 
-      console.log("matches", matches);
-
       regex.compile('^' + string + '$', 'i');
 
       var match = _.find(matches, function(match){
