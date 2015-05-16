@@ -1,4 +1,4 @@
-.start-overlay {
+.overlay {
 
 	position: fixed;
 	width: 100%;
@@ -76,7 +76,7 @@
 
 .main-game-panel {
 
-	padding: 50px;
+	padding: 30px;
 	position: relative;
 
 	.player-one-word-trail {
@@ -96,20 +96,16 @@
 			margin-bottom: 30px;
 			vertical-align: middle;
 
-			&.correct {
+			span.circle {
+				border-radius: 50%;
+				height: 20px;
+				width: 20px;
+				background: $white;
+				display: inline-block;
 
-				span.circle {
-					border-radius: 50%;
-					height: 20px;
-					width: 20px;
-					background: $white;
-					display: inline-block;
-
-				}
-				
 			}
 
-			&.current {
+			&:last-child {
 
 				span.circle {
 					border-radius: 50%;
@@ -145,13 +141,26 @@
 		}
 
 		img {
-			width: 500px;
+			height: 300px;
 			border: 10px solid $white;
 			-ms-transform: rotate(3deg); /* IE 9 */
     		-webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
     		transform: rotate(3deg);
 		}
 
+	}
+
+}
+
+.answer-input {
+
+	input {
+		background: $white;
+		border-radius: 8px;
+		padding: 10px 15px;
+		font-size: 1.8em;
+		border: none;
+		text-align: center;
 	}
 
 }

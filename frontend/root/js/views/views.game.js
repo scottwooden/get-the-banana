@@ -29,7 +29,7 @@ define([
         this._super();
 
         this.$content = this.$('.player-current-word');
-        this.$trail = this.$('.player-one-word-trail');
+        this.$trail = this.$('.player-one-word-trail ul');
 
     },
 
@@ -87,13 +87,6 @@ define([
     },
 
     refreshWord: function(){
-
-        // // Grab links
-        // var data = {
-        //  "title": "Albert Einstein",
-        //  "image": "http://cp91279.biography.com/1000509261001/1000509261001_1097479514001_Bio-Biography-Albert-Einstein-SF.jpg",
-        //  "links": ["Banana", "Apple"]
-        // };
 
         $('body').animate({ 'scrollTop': 0 });
 
