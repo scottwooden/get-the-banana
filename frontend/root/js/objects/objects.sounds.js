@@ -11,21 +11,19 @@ define([
         { src: "Wrong Answer 2.wav", id: "incorrect" }
       ],
 
-      initialize: function(){
-
-        this.registerSounds();
-
-      },
-
-      registerSounds: function(){
+      loadSounds: function(){
         
-        createjs.Sound.alternateExtensions = ["mp3"];    // if the passed extension is not supported, try this extension
+        var deferred = $.Deferred();
 
-        createjs.Sound.on("fileload", function(){
-          console.log("done");
-        }); 
+        var loadedAll = _.after(this.sounds.length, function(){
+          deferred.resolve();
+        });
+
+        createjs.Sound.on("fileload", loadedAll);
 
         createjs.Sound.registerSounds(this.sounds, "audio/");
+
+        return deferred;
 
       },
 

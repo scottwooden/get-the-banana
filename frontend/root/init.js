@@ -44,7 +44,12 @@ require([
 
     Globals.Sounds = new SoundObject();
 
-    Backbone.history.start({ pushState: false });
+    Globals.Sounds.loadSounds().done(function(){
+
+      Backbone.history.start({ pushState: false });
+      
+    });
+
 
   });
 
