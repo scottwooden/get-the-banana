@@ -214,8 +214,6 @@ section.timer {
 	width: 100%;
 	height: 100%;
 	z-index: 20;
-	color: $white;
-	background: rgba(0,0,0,0.4);
 	pointer-events: none;
 	opacity: 0;
 	text-align: center;
@@ -223,16 +221,25 @@ section.timer {
 
 	h1 {	
 
-		font-size: 100px;
-		text-shadow: 0px 3px 11px rgba(150, 150, 150, 1);
+		font-size: 140px;
 
 	}
 
-	.correct, .wrong {
+	h2 {
+		text-transform: uppercase;
+		font-size: 100px;
+	}
 
+	.correct, .wrong, .win {
+
+		position: absolute;
 		transition: all 0.3s;
 		transform: scale(0.3);
 		opacity: 0;
+		width: 100%;
+		top: 50%;
+		left: 0;
+		margin-top: -200px;
 
 	}
 
@@ -244,8 +251,10 @@ section.timer {
 
 	&.correct {
 
-		.correct {
+		background: rgba(0,255,0,0.8);
 
+		.correct {
+			color: $white;
 			transform: scale(1);
 			opacity: 1;
 			
@@ -253,13 +262,27 @@ section.timer {
 
 	}
 
-	&.wrong {
+	&.wrong {	
+
+		background: rgba(255,0,0,0.8);
 
 		.wrong {
 
+			color: $white;
 			transform: scale(1);
 			opacity: 1;
 			
+		}
+
+	}
+
+	&.win {
+
+		.win {
+
+			transform: scale(1);
+			opacity: 1;
+
 		}
 
 	}

@@ -11,6 +11,7 @@ requirejs.config({
     "text": "../../lib/requirejs-text/text",
     "json": '../../lib/requirejs-plugins/src/json',
     "annyang": '../../lib/annyang/annyang',
+    "soundJS": '../../lib/SoundJS/lib/soundjs-0.6.0.min',
     
   },
 
@@ -19,7 +20,8 @@ requirejs.config({
     "jquery": { exports: "$" },
     "jquery-mobile-events": { deps: ["jquery"] },
     "backbone": { exports: "Backbone", deps: ["underscore", "jquery"] },
-    "annyang": { exports: "annyang" }
+    "annyang": { exports: "annyang" },
+    "soundJS": { exports: "createjs" }
   }
   
 });

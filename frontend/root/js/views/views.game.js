@@ -65,26 +65,26 @@ define([
       var match = word.checkLink(value);
 
       if(match){
-        this.correctMessage();
+        this.correctMessage(value);
         this.selectWord(match);
       } else {
-        this.incorrectMessage();
+        this.incorrectMessage(value);
       }
 
     },
 
-    correctMessage: function(){
+    correctMessage: function(word){
 
+      $('#correct-answer').html(word);
       $('.answer-feedback').toggleClass('active correct');
 
        setTimeout( function() { $('.answer-feedback').toggleClass('active correct'); }, 800);
 
     },
 
-    incorrectMessage: function(){
+    incorrectMessage: function(word){
 
-      var self = this;
-
+      $('#wrong-answer').html(word);
       $('.answer-feedback').toggleClass('active wrong');
 
       setTimeout( function() { $('.answer-feedback').toggleClass('active wrong'); }, 800);
@@ -225,8 +225,17 @@ define([
 
     selectWord: function(word){
 
-        Globals.User.words.add({ title: word });
-        this.refreshWord();
+        if(word == 'Banana') {
+        
+            this.winningTrigger();
+        
+        } else {
+
+            Globals.User.words.add({ title: word });
+            Globals.User.increment("score");
+            this.refreshWord();
+            
+        }
 
     },
 

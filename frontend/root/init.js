@@ -28,6 +28,7 @@ require([
     'models/models.user',
     'backbone-super',
     'annyang',
+    'soundJS',
   ], function(Globals, $, _, Backbone, Router, UserModel){
 
     window.Globals = Globals;
