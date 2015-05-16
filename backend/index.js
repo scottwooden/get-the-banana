@@ -2,6 +2,7 @@ var colors = require('colors');
 var request = require('request');
 var _ = require('underscore');
 var Q = require('q');
+var cheerio = require('cheerio');
 
 /* Mongoose */ 
 var mongoose = require('mongoose');
@@ -78,9 +79,15 @@ var getInfo = function(title){
 
     var data = { title: page.displaytitle };
 
-    if(page.thumbnail) data.image = page.thumbnail.original;
-    
-    deferred.resolve(data);
+    if(page.thumbnail){
+      data.image = page.thumbnail.original;
+      return deferred.resolve(data);
+    }
+
+    getGoogleImage(title).then(function(result){
+      data.image = result.image;
+      deferred.resolve(data);
+    });
     
   });
 
@@ -144,12 +151,26 @@ var getLinks = function(title){
 
 var getGoogleImage = function(title){
 
-  // var params = {
-  //   tbm: 'isch',
-  //   ''
-  // }
+  var params = {
+    tbm: 'isch',
+    q: title,
+  };
 
-  // var baseUrl = https://www.google.co.uk/search?q=bird&tbm=isch
+  var baseUrl = "https://www.google.co.uk/search";
+
+  var deferred = Q.defer();
+
+  request(baseUrl, { qs: params, json: true }, function(err, response, body){
+
+    var $ = cheerio.load(body);
+
+    var url = $('#ires img').first().attr('src');
+
+    deferred.resolve({ image: url });
+
+  });
+
+  return deferred.promise;
 
 };
 

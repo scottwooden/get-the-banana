@@ -15,14 +15,13 @@ define([
       'Fruit',
       'Tractor',
       'Owl',
-      'Hackathon',
+      'Hacker',
       'Buttocks',
       'Donkey',
       'London Underground',
       'Red',
       'North Pole',
       'Tyrannosaurus',
-      'Animal coloration'
     ],
 
     initialize: function(){
