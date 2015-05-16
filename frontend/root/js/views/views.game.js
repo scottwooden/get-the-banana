@@ -25,6 +25,24 @@ define([
 
         this.$content = this.$('.player-current-word');
         this.$trail = this.$('.player-one-word-trail ul');
+        this.$score = this.$('#user-score');
+
+        this.addEvents();
+
+    },
+
+    addEvents: function(){
+
+      this.listenTo(Globals.User, 'change:score', function(){
+        this.updateScore();
+      });
+
+    },
+
+    updateScore: function(){
+
+      var score = Globals.User.get('score');
+      this.$score.html(score);
 
     },
 
@@ -61,6 +79,8 @@ define([
 
       var value = $(e.currentTarget).val();
       var word = Globals.User.words.last();            
+
+      if(!value) return;
 
       var match = word.checkLink(value);
 

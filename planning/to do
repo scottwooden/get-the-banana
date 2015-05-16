@@ -1,17 +1,17 @@
 
 - add input DONE
-- Fix bugs with search api
-- fix case sensitive search
-- add google image backup search
+- Fix bugs with search api DONE
+- fix case sensitive search DONE
+- add google image backup search DONE
 - figure out wiki redirects (e.g cheeks) DONE
-- add input word to correct/incorrect
+- add input word to correct/incorrect DONE
 - add scoring logic DONE
 - Add logic for winning DONE
 - incorrect / correct overlay DONE
-- loading overlay 
+- loading overlay
 - Create winning screen DONE
 - add saving user to db
-- add coundown logic 
+- add coundown logic
 - add countdown functionality
 - fix game page styling
 - add speech api
