@@ -136,7 +136,7 @@ define([
 
     resetCountdown: function() {
 
-        
+        console.log('New Word');
 
     },
 
