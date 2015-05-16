@@ -7,6 +7,10 @@ define([
 
   	urlRoot: "api/users",
 
+    defaults: {
+      score: 0
+    },
+
     startWords: [
       // 'Fruit',
       // 'Tractor',
@@ -37,7 +41,7 @@ define([
       return this.words.pluck('title');
 
     },
-
+    
   });
 
 });
