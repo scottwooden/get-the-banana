@@ -15,7 +15,8 @@ define([
     },
 
     events: {
-    	'click .start-overlay .start': 'clickStart'
+    	'click .start-overlay .start': 'clickStart',
+      'keydown .answer-input': 'inputKeydown'
     },
 
     initialize: function(){
@@ -60,6 +61,18 @@ define([
 
     },
 
+    inputKeydown: function(e){
+
+      if(e.which !== 13) return;
+
+      var value = $(e.currentTarget).val();
+
+      var word = Globals.User.word.last();            
+
+      word.checkLink(value);
+
+    },
+
     countdown: function() {
 
     	var self = this;
@@ -88,13 +101,6 @@ define([
 
     refreshWord: function(){
 
-        // // Grab links
-        // var data = {
-        //  "title": "Albert Einstein",
-        //  "image": "http://cp91279.biography.com/1000509261001/1000509261001_1097479514001_Bio-Biography-Albert-Einstein-SF.jpg",
-        //  "links": ["Banana", "Apple"]
-        // };
-
         $('body').animate({ 'scrollTop': 0 });
 
     	var self = this;
@@ -103,6 +109,7 @@ define([
         word.fetch().done(function(){
         	self.renderContent();
             self.renderWordTrail();
+            // self.updateSpeechEvents();
         });
 
 
@@ -133,6 +140,51 @@ define([
 
     },
 
+    updateSpeechEvents: function(){
+
+      var recognition = new webkitSpeechRecognition();
+      // recognition.continuous = true;
+      // recognition.interimResults = true;
+
+      recognition.start();
+
+      var sentence = [];
+
+      recognition.onresult = function(event) {
+
+        console.log("event.results", event.results);
+
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+
+          var string = _.reduce(event.results, function(string, item){
+            return string + " " + item[0].transcript
+          }, "");
+
+          console.log("string", string);
+
+          // sentence.push(event.results[i][0].transcript);
+          // console.log(event.results[i][0].transcript);
+          // if(event.results[i].isFinal) console.log(sentence.join(" "));
+          // if (event.results[i].isFinal){
+          //   final_transcript += event.results[i][0].transcript;
+          //   final_transcript = final_transcript.split(' ');
+          //   console.log(final_transcript);
+          //   console.log(self.wordChecker(final_transcript, word));
+          // }
+        }
+
+      };
+
+      recognition.onend = function() { 
+
+        recognition.stop();
+        recognition.start();
+        console.log("done");
+
+      }
+
+    },
+
     selectWord: function(word){
 
         Globals.User.words.add({ title: word });
@@ -150,59 +202,30 @@ define([
 			recognition.continuous = true;
 	  		recognition.interimResults = true;
 
-		recognition.onresult = function(event) { 
-		  console.log(event) 
-		}
-		recognition.start();
+  		recognition.onresult = function(event) { 
+  		  console.log(event) 
+  		}
+  		recognition.start();
 
-		recognition.onresult = function(event) {
+  		recognition.onresult = function(event) {
 
-		    var interim_transcript = '';
-		    if (typeof(event.results) == 'undefined') {
-		      recognition.onend = null;
-		      recognition.stop();
-		      upgrade();
-		      return;
-		    }
-		    for (var i = event.resultIndex; i < event.results.length; ++i) {
-		      if (event.results[i].isFinal) {
-		        final_transcript += event.results[i][0].transcript;
-		        final_transcript = final_transcript.split(' ');
-		        console.log(final_transcript);
-		        console.log(self.wordChecker(final_transcript, word));
-		      }
-		    }
+  		    var interim_transcript = '';
+  		    if (typeof(event.results) == 'undefined') {
+  		      recognition.onend = null;
+  		      recognition.stop();
+  		      upgrade();
+  		      return;
+  		    }
+  		    for (var i = event.resultIndex; i < event.results.length; ++i) {
+  		      if (event.results[i].isFinal) {
+  		        final_transcript += event.results[i][0].transcript;
+  		        final_transcript = final_transcript.split(' ');
+  		        console.log(final_transcript);
+  		        console.log(self.wordChecker(final_transcript, word));
+  		      }
+  		    }
 
-		};
-
-    },
-
-    wordChecker: function(transcript, words) {
-
-		    var output = [];
-		    var cntObj = {};
-		    var array, item, cnt;
-		    // for each array passed as an argument to the function
-		    for (var i = 0; i < arguments.length; i++) {
-		        array = arguments[i];
-		        // for each element in the array
-		        for (var j = 0; j < array.length; j++) {
-		            item = "-" + array[j];
-		            cnt = cntObj[item] || 0;
-		            // if cnt is exactly the number of previous arrays, 
-		            // then increment by one so we count only one per array
-		            if (cnt == i) {
-		                cntObj[item] = cnt + 1;
-		            }
-		        }
-		    }
-		    // now collect all results that are in all arrays
-		    for (item in cntObj) {
-		        if (cntObj.hasOwnProperty(item) && cntObj[item] === arguments.length) {
-		            output.push(item.substring(1));
-		        }
-		    }
-		    return(output); 
+  		};
 
     }
 
