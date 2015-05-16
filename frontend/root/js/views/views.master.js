@@ -25,7 +25,7 @@ define([
       options = options || {};
 
       if(this.templates && this.templates[this.activeTemplate]){
-        this.$el.html( this.templates[this.activeTemplate](options) );
+        this.$el.html( this.templates[this.activeTemplate]({ data : options }));
       } else{
         this.$el.empty();
       }

@@ -2,12 +2,16 @@ define([
   'globals',
   'views/views.master',
   'text!templates/game.html',
-], function(Globals, Master, template){
+  'text!templates/game-content.html',
+  'text!templates/game-trail.html',
+], function(Globals, Master, template, contentTemplate, trailTemplate){
 
   return Master.extend({
 
     templates: {
-      'main': template
+      'main': template,
+      'content': contentTemplate,
+      'trail': trailTemplate
     },
 
     events: {
@@ -17,6 +21,15 @@ define([
     initialize: function(){
 
     	this._super();
+
+    },
+
+    render: function(){
+
+        this._super();
+
+        this.$content = this.$('.player-current-word');
+        this.$trail = this.$('.player-one-word-trail');
 
     },
 
@@ -51,6 +64,10 @@ define([
 
     	var self = this;
 
+        $('.start-overlay').fadeOut(100);
+        return self.refreshWord();
+
+
     	var countdown = 2;
     	$('.countdown').show();
     	setInterval(function(){
@@ -61,7 +78,7 @@ define([
     		if (countdown == -1) {
 
     			$('.start-overlay').fadeOut(100);
-    			self.startGame();
+    			self.refreshWord();
 
     		}
 
@@ -69,31 +86,59 @@ define([
 
     },
 
-    startGame: function() {
+    refreshWord: function(){
+
+        // // Grab links
+        // var data = {
+        //  "title": "Albert Einstein",
+        //  "image": "http://cp91279.biography.com/1000509261001/1000509261001_1097479514001_Bio-Biography-Albert-Einstein-SF.jpg",
+        //  "links": ["Banana", "Apple"]
+        // };
+
+        $('body').animate({ 'scrollTop': 0 });
 
     	var self = this;
-    	// Grab links
-    	var data = {
-    		"title": "Albert Einstein",
-    		"image": "http://cp91279.biography.com/1000509261001/1000509261001_1097479514001_Bio-Biography-Albert-Einstein-SF.jpg",
-    		"links": ["Banana", "Apple"]
-    	};
+        var word = Globals.User.words.last();
 
-    	self.levelBuild(data);
+        word.fetch().done(function(){
+        	self.renderContent();
+            self.renderWordTrail();
+        });
+
 
     }, 
 
-    levelBuild: function(data) {
+    renderContent: function(word) {
 
-    	var self = this;
+        var self = this;
 
-    	$('#word-title').html(data.title);
-    	$('#word-image').attr('src', data.image);
-    	$('#word-links').val(data.links);
+        var data = Globals.User.words.last().toJSON();
 
-    	self.listen(data.links);
+        this.$content.html(this.templates.content({ data: data }));
+
+        this.$('.test-links li').on('click', function(){
+            var item = $(this).html();
+            self.selectWord(item);
+        });
 
     }, 
+
+    renderWordTrail: function(){
+
+        var data = {
+            trail: Globals.User.getTrail()
+        };
+
+        this.$trail.html(this.templates.trail({ data: data }))
+
+    },
+
+    selectWord: function(word){
+
+        Globals.User.words.add({ title: word });
+        this.refreshWord();
+
+    },
 
     listen: function(word) {
 
@@ -160,7 +205,6 @@ define([
 		    return(output); 
 
     }
-
 
   });
 
