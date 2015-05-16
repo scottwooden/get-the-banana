@@ -130,8 +130,15 @@ define([
             // self.updateSpeechEvents();
         });
 
+        this.resetCountdown();
 
     }, 
+
+    resetCountdown: function() {
+
+        
+
+    },
 
     renderContent: function(word) {
 
