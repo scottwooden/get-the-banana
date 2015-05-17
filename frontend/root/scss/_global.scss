@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,900,700);
+@import url("../fonts/stylesheet.css");
 
 $yellow : #FBCC34;
 $green 	: #60E2C5;
@@ -16,7 +16,7 @@ html, body {
 
 body{
   
-  font-family: 'Roboto', sans-serif;
+  font-family: 'aller_displayregular';
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
 
@@ -28,6 +28,13 @@ body{
 
 h3 {
 	font-size: 1.8em;
+}
+
+p {
+
+	text-transform: uppercase;
+ 	line-height: 30px;
+
 }
 
 // Links
