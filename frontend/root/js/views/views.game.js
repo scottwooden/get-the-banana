@@ -61,7 +61,6 @@ define([
       var score = Globals.User.get('score');
       this.$score.html(score);
 
-      console.log(score);
       if (score > 15) {
 
         this.$hintsList.fadeOut(100);
