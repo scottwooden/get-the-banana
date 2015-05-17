@@ -94,39 +94,29 @@
 			margin: 0;
 			margin-bottom: 30px;
 			vertical-align: middle;
+			line-height: 27px;
 
+			&:last-child{
+				margin-bottom: 60px;
+			}
 			span.circle {
 				border-radius: 50%;
-				height: 20px;
-				width: 20px;
+				height: 17px;
+				width: 17px;
+				border: 3px solid $white;
 				background: $white;
 				display: inline-block;
+				vertical-align: middle;
+				margin-right: 10px;
 
 			}
 
-			&:last-child {
+		}
 
-				span.circle {
-					border-radius: 50%;
-					height: 20px;
-					width: 20px;
-					background: $yellow;
-					border: 4px solid $white;
-					display: inline-block;
+		> li {
 
-				}
-
-				span.word {
-					display: inline-block;
-					margin-top: 5px;
-				}
-
-			}
-
-
-			span.word {
-				vertical-align: top;
-				margin-left: 7px;
+			span.circle {
+				background: none;
 			}
 
 		}
