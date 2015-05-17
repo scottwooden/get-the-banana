@@ -190,7 +190,7 @@ define([
           self.renderContent();
           self.renderWordTrail();
           self.updateSpeechEvents();
-          self.timerText.html('GET TO BANANA FROM '+ )
+          self.timerText.html('GET TO BANANA FROM ' + )
         
         });
 
