@@ -9,19 +9,25 @@
 
 	.contain {
 
-		width: 600px;
+		width: 530px;
 		margin: 150px auto;
+
+		h1 {
+			font-size: 2.2em;
+		}
 
 		input {
 
+			font-family: 'aller_displayregular';
 			margin: 40px 0;
 			padding: 15px;
 			background: none;
 			color: $white;
 			font-size: 1.6em;
 			border: none;
-			border-bottom: 4px solid $white;
+			border-bottom: 2px solid $white;
 			text-align: center;
+			text-transform: uppercase;
 
 		}
 
@@ -30,7 +36,7 @@
 			background: transparent;
 			border: 2px solid $white;
 			color: $white;
-			padding: 10px 80px;
+			padding: 10px 93px;
 
 		}
 
@@ -55,7 +61,7 @@
 		
 	  	height: 100px;
 	  	background: #fff;
-	  	padding: 30px 20px;
+	  	padding: 23px 20px;
 	
 		span {
 			font-size: 40px;
@@ -152,6 +158,7 @@
 
 		h1 {
 			font-size: 2.4em;
+			text-transform: uppercase;
 		}
 
 		.word-image-container{
@@ -183,6 +190,7 @@
 	text-align: center;
 
 	input {
+		font-family: 'aller_displayregular';
 		margin-top: 30px;
 		background: $white;
 		border-radius: 8px;
