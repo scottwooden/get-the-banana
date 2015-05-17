@@ -152,6 +152,9 @@ define([
 
     	var self = this;
 
+        $('.start-overlay').fadeOut(100);
+        return self.refreshWord();
+
       Globals.Sounds.play("countdown");
 
     	var countdown = 2;
@@ -190,7 +193,7 @@ define([
           self.renderContent();
           self.renderWordTrail();
           self.updateSpeechEvents();
-          self.timerText.html('GET TO BANANA FROM '+ )
+          self.$timerText.html('GET TO BANANA FROM '+ word.get("title"));
         
         });
 
@@ -208,13 +211,13 @@ define([
 
         $('.timer .inner').css({"width": "100%"});
 
-        $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
+        $('.timer .inner').animate({'width': 0}, 300000, 'linear', function(){
 
             self.gameOver();
 
         });
 
-        setTimeout(function(){Globals.Sounds.play("rush")}, 15000);
+        setTimeout(function(){Globals.Sounds.play("rush")}, 150000);
 
     },
 
