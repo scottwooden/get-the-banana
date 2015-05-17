@@ -64,7 +64,8 @@ define([
       console.log(score);
       if (score > 15) {
 
-        this.$hints.fadeOut(100);
+        this.$hintsList.fadeOut(100);
+        this.$hints.html('OUT OF HINTS');
 
       }
 
@@ -240,7 +241,7 @@ define([
 
         $('.timer .inner').stop().css({"width": "100%"});
 
-        $('.timer .inner').animate({'width': 0}, 300000, 'linear', function(){
+        $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
 
             self.gameOver();
 
@@ -254,9 +255,9 @@ define([
 
           self.hintsInterval = setInterval(function(){
             self.updateHints();
-          }, 30000);
+          }, 2000);
 
-        }, 150000);
+        }, 15000);
 
     },
 
