@@ -8,7 +8,7 @@
 - add scoring logic DONE
 - Add logic for winning DONE
 - incorrect / correct overlay DONE
-- loading overlay
+- loading overlay 
 - Create winning screen DONE
 - add saving user to db
 - add coundown logic
@@ -16,8 +16,13 @@
 - fix game page styling
 - add speech api
 - remove 'List of' results DONE
-- reset on restart 
+- reset on restart DONE
+- add hints 
+- going back to same place
+- plurals
+- add some more starting words
 
 ----------------------
+
 - add transitions
 - add sound DONE

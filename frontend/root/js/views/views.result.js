@@ -6,6 +6,10 @@ define([
 
   return Master.extend({
 
+    events: {
+      'click .btn-primary': 'buttonClick'
+    },  
+
     templates: {
       'main': template
     },
@@ -17,7 +21,6 @@ define([
     	};
 
     	options = _.extend(defaults, options);
-    	console.log(options);
     	this.status = options.status;
 
   		return this._super();
@@ -30,6 +33,12 @@ define([
     		status: this.status,
     		score: Globals.User.get("score")
     	});
+
+    },
+
+    buttonClick: function(){
+
+      Globals.User.clear();
 
     },
 

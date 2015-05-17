@@ -4,9 +4,13 @@ define([
 
   return Master.extend({
 
-    idAttribute: "title",
-
     urlRoot: "/api/search",
+
+    url: function(){
+
+      return this.urlRoot + "/" + this.get('title');
+
+    },
 
     checkLink: function(string){
 
