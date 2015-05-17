@@ -157,15 +157,19 @@ define([
 
     	$('.countdown').show();
 
-    	setInterval(function(){
+    	var timer = setInterval(function(){
 
     		$('.countdown').html(countdown || "GO!");
     		countdown--;
 
     		if (countdown == -1) {
 
-    			$('.start-overlay').fadeOut(100);
-    			self.refreshWord();
+    			$('.start-overlay').fadeOut(100, function(){
+
+            clearInterval(timer);
+            
+          });
+          self.refreshWord();
 
     		}
 
@@ -195,6 +199,8 @@ define([
         var self = this;
 
         $('.timer .inner').stop();
+
+        Globals.Sounds.stop("rush");
 
         $('.timer .inner').css({"width": "100%"});
 
@@ -233,14 +239,15 @@ define([
 
     selectWord: function(word){
 
-        if(word == 'Banana') {
+        Globals.User.increment("score");
         
+        if(word == 'Banana') {
+          
             this.winningTrigger();
         
         } else {
 
             Globals.User.words.add({ title: word });
-            Globals.User.increment("score");
             this.refreshWord();
             
         }

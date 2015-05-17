@@ -1,8 +1,8 @@
 <section class="result container text-center">
 
-	<% if(status == 'win') { %>
+	<% if(data.status == 'win') { %>
 		<h1>YOU GOT THE BANANA!</h1>	
-		<h3>YOU DID IT IN 7 WORDS!</h3>
+		<h3>YOU DID IT IN <%= data.score %> WORDS!</h3>
 
 		<br><br>
 		<img src="images/banana.gif">
