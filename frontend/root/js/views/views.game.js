@@ -278,9 +278,19 @@ define([
 
     },
 
+    clearHints: function(){
+
+      this.$hints.removeClass('active');
+      this.$hintsList.empty();
+
+    },
+
     selectWord: function(word){
 
         this.$content.addClass('next');
+        
+        this.clearHints();
+
         Globals.User.increment("score");
         
         if(word == 'Banana') {
