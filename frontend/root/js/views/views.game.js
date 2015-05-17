@@ -135,8 +135,8 @@ define([
 
       var self = this;
       Globals.Sounds.play("win");
-      $('.answer-feedback').toggleClass('active win');
-      setTimeout( function() { Globals.Router.navigate("result/win");}, 500);
+      $('.answer-feedback').removeClass('correct').addClass('active win');
+      setTimeout( function() { Globals.Router.navigate("result/win");}, 1000);
 
     },
 
@@ -183,7 +183,7 @@ define([
 
     refreshWord: function(){
 
-        $('body').animate({ 'scrollTop': 0 });
+        this.$content.removeClass('next active');
 
     	  var self = this;
         var word = Globals.User.words.last();
@@ -211,13 +211,13 @@ define([
 
         $('.timer .inner').css({"width": "100%"});
 
-        $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
+        $('.timer .inner').animate({'width': 0}, 300000, 'linear', function(){
 
             self.gameOver();
 
         });
 
-        setTimeout(function(){Globals.Sounds.play("rush")}, 15000);
+        setTimeout(function(){Globals.Sounds.play("rush")}, 150000);
 
     },
 
@@ -227,6 +227,8 @@ define([
         var data = Globals.User.words.last().toJSON();
 
         this.$content.html(this.templates.content({ data: data }));
+        this.$content.addClass('active');
+
 
     }, 
 
@@ -246,6 +248,7 @@ define([
 
     selectWord: function(word){
 
+        this.$content.addClass('next');
         Globals.User.increment("score");
         
         if(word == 'Banana') {

@@ -136,19 +136,27 @@
 
 	.player-current-word {
 
-		transition: all 0.3s;
-		opacity: 1;
+		transform: scale(0.8);
+		opacity: 0;
 
 		&.active {
 
+			transition: all 0.3s;
 			transform: scale(1);
 			opacity: 1;
 
 		}
 
+		&.hide {
+
+			opacity: 0;
+
+		}
+
 		&.next {
 
-			
+			transform: scale(1.3);
+			opacity: 0;
 
 		}
 
@@ -173,6 +181,12 @@
 }
 
 .answer-input {
+
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	bottom: 100px;
+	left: 0;
 
 	input {
 		margin-top: 30px;
