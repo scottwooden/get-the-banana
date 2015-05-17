@@ -194,6 +194,7 @@ define([
 
     refreshWord: function(){
 
+        this.$hints.removeClass('active');
         this.$content.removeClass('next active');
 
     	  var self = this;

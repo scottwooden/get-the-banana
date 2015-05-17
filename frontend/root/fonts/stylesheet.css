@@ -14,3 +14,16 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'allerbold';
+    src: url('aller_bd-webfont.eot');
+    src: url('aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('aller_bd-webfont.woff2') format('woff2'),
+         url('aller_bd-webfont.woff') format('woff'),
+         url('aller_bd-webfont.ttf') format('truetype'),
+         url('aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
