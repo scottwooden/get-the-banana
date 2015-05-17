@@ -177,12 +177,13 @@ define([
 
     	var timer = setInterval(function(){
 
-    		$('.countdown').html(countdown || "GO!");
-    		countdown--;
+
+        $('.countdown').html(countdown || "GO!");
+        countdown--;
 
     		if (countdown == -1) {
 
-    			$('.start-overlay').remove();
+    			$('.start-overlay').fadeOut(200);
           clearInterval(timer);
           self.refreshWord(true);
 
