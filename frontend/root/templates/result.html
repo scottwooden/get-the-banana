@@ -1,20 +1,25 @@
-<section class="result container text-center animated bounceIn">
+<section class="result container text-center animated bounceIn vertical-center-parent col row">
 
-	<% if(data.status == 'win') { %>
-		<h1>YOU GOT THE BANANA!</h1>	
-		<h3>YOU DID IT IN <%= data.score %> WORDS!</h3>
+	<div class="vertical-center">
 
-		<br><br>
-		<img src="images/banana.gif">
-		<br>
-		<a href="#game" class="btn-primary">PLAY AGAIN?</a>
-	<% } else { %>
-		<h1>GAME OVER</h1>	
-		<h3>BETTER LUCK NEXT TIME!</h3>
+		<% if(data.status == 'win') { %>
+			<h1>YOU GOT THE BANANA!</h1>	
+			<h3>YOU DID IT IN <%= data.score %> WORDS!</h3>
 
-		<br><br>
-		<img src="images/banana.gif">
-		<br>
-		<a href="#game" class="btn-primary">PLAY AGAIN?</a>
-	<% } %>
+			<br><br>
+			<img src="images/banana.gif">
+			<br>
+			<a href="#game" class="btn-primary">PLAY AGAIN?</a>
+		<% } else { %>
+			<h1>GAME OVER</h1>	
+			<h3>BETTER LUCK NEXT TIME!</h3>
+
+			<br><br>
+			<img src="images/banana.gif">
+			<br>
+			<a href="#game" class="btn-primary">PLAY AGAIN?</a>
+		<% } %>
+
+	</div>
+
 </section>
