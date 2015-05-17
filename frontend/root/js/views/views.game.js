@@ -333,8 +333,9 @@ define([
     updateHeight: function() {
 
       var windowHeight = this.$content.height();
-      console.log(windowHeight);
-      this.$content.find('img').css({"max-height": windowHeight - 200});
+      var descriptionHeight = this.$content.find('.description').height();
+
+      this.$content.find('img').css({"max-height": windowHeight - 200 - descriptionHeight});
 
     },
 
