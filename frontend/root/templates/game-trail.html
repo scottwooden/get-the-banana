@@ -1,3 +1,4 @@
+<% if(data.extra){ %><li><span class="circle"></span>+<%= data.extra %></li><% } %>
 <% _.each(data.trail, function(word){ %>
 	<li>
     <span class="circle"></span><%= word %>

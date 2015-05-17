@@ -23,7 +23,8 @@ define([
       // 'Milk float',
       // 'Guitar',
       // 'Vodka',
-      'Roller coaster',
+      'Mayfly',
+      // 'Roller coaster',
     ],
 
     initialize: function(){

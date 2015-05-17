@@ -61,7 +61,6 @@ define([
       var score = Globals.User.get('score');
       this.$score.html(score);
 
-      console.log(score);
       if (score > 15) {
 
         this.$hints.fadeOut(100);
@@ -275,11 +274,18 @@ define([
 
     renderWordTrail: function(){
 
-        var data = {
-            trail: Globals.User.getTrail()
-        };
+      var data = {};
 
-        this.$trail.html(this.templates.trail({ data: data }))
+      var trail = Globals.User.getTrail();
+
+      if(trail.length > 6){
+        data.extra = trail.length - 6;
+        data.trail = _.last(trail, 6);
+      } else {
+        data.trail = trail;
+      }
+
+      this.$trail.html(this.templates.trail({ data: data }))
 
     },
 
@@ -333,7 +339,6 @@ define([
     updateHeight: function() {
 
       var windowHeight = this.$content.height();
-      console.log(windowHeight);
       this.$content.find('img').css({"max-height": windowHeight - 200});
 
     },
