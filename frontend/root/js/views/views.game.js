@@ -251,6 +251,8 @@ define([
         this.$content.html(this.templates.content({ data: data }));
         this.$content.addClass('active');
 
+        this.$('.input-answer').focus();        
+
 
     }, 
 

@@ -12,19 +12,18 @@ define([
     },
 
     startWords: [
-      // 'Fruit',
-      // 'Hamster',
-      // 'Guitar',
-      // 'Jazz',
-      // 'Trombone',
-      // 'File system',
-      // 'Tutankhamun',
-      // 'Feces',
-      // 'Butterfly',
-      // 'Elevator',
-      // 'Milk float',
-      // 'Guitar',
-      'History of the classical guitar'
+      'Fruit',
+      'Hamster',
+      'Guitar',
+      'Jazz',
+      'Generative art',
+      'File system',
+      'Tutankhamun',
+      'Feces',
+      'Butterfly',
+      'Elevator',
+      'Milk float',
+      'Guitar',
     ],
 
     initialize: function(){
@@ -32,6 +31,10 @@ define([
       this.words = new WordsCollection();
 
       this.addStartWord();
+
+      this.on('all', function(e){
+        console.log("e", e);
+      });
 
       return this._super();
 
@@ -63,7 +66,9 @@ define([
 
       this.addStartWord();
 
-      return this._super(options);
+      this._super(options);
+
+      this.set(this.defaults);
 
     },
     

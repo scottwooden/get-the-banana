@@ -42,7 +42,13 @@ define([
         return link.match(/\S+/g).length < 3;
       });
 
-      return _.sample(shortLinks);
+      var word = _.sample(shortLinks);
+
+      word = word.substring(0, Math.floor(word.length * 0.75));
+
+      word += "...";
+
+      return word;
 
     },
 

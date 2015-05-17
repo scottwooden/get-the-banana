@@ -17,8 +17,8 @@
 - add speech api
 - remove 'List of' results DONE
 - reset on restart DONE
-- add hints 
-- going back to same place
+- add hints DONE
+- going back to same place DONE
 - plurals
 - add some more starting words
 - add route to results screen
@@ -28,6 +28,10 @@
 - generative bananas
 - remove special characters and words in brackets in links list
 - pre load images
+- limit hint showing 
+- limit hint text DONE
+- fix long title wrapping
+- no hints after 15 pages
 
 ----------------------
 

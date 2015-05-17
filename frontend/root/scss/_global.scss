@@ -85,12 +85,16 @@ a.btn-primary {
 	box-sizing: border-box;
 }
 
-.vertical-center-parent:before{
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -0.25em;
+.vertical-center-parent{
+  white-space: nowrap;
+  
+  &:before{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
 }
 
 .vertical-center{
