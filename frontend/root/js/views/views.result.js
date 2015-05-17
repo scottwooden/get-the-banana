@@ -17,7 +17,7 @@ define([
     	};
 
     	options = _.extend(defaults, options);
-
+    	console.log(options);
     	this.status = options.status;
 
   		return this._super();
@@ -27,7 +27,8 @@ define([
     render: function(){
 
     	this._super({
-    		status: this.status
+    		status: this.status,
+    		score: Globals.User.get("score")
     	});
 
     },
