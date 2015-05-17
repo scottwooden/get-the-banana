@@ -110,6 +110,8 @@ define([
         this.incorrectMessage(value);
       }
 
+      $(e.currentTarget).val('');
+
     },
 
     correctMessage: function(word){
@@ -136,8 +138,8 @@ define([
 
       var self = this;
       Globals.Sounds.play("win");
-      $('.answer-feedback').removeClass('correct').addClass('active win');
-      setTimeout( function() { Globals.Router.navigate("result/win");}, 1000);
+      $('.answer-feedback').removeClass('correct active').addClass('active win');
+      setTimeout( function() { Globals.Router.navigate("result/win");}, 2000);
 
     },
 
@@ -271,7 +273,7 @@ define([
     },
 
     displayHints: function() {
-      
+
       this.$hints.addClass('active');
 
     },

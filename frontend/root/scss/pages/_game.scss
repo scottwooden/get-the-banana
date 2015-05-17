@@ -281,6 +281,10 @@ section.timer {
 
 	}
 
+	.win {
+		transition: all 0.8s;
+	}
+
 	&.active {
 
 		opacity: 1;
@@ -316,8 +320,11 @@ section.timer {
 
 	&.win {
 
+		background: rgba(0,0,0,0.8);
+
 		.win {
 
+			color: $white;
 			transform: scale(1);
 			opacity: 1;
 
