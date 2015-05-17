@@ -1,7 +1,9 @@
 <div class="vertical-center">
   
+  <% console.log(data) %>
+
   <h1 id="word-title"><%= data.title %></h1>
-  <!-- <div class="description"></div> -->
+  <% if(data.extract){ %><div class="description"><%= data.extract %></div><% } %>
 
   <br><br>
 

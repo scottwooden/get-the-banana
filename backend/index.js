@@ -60,9 +60,12 @@ var getPage = function(title){
 var getInfo = function(title){
 
   var params = _.extend({}, defaults, {
-    prop: "info|pageimages",
+    prop: "info|pageimages|extracts",
     inprop: "displaytitle",
     piprop: "original",
+    exsentences: "1",
+    exlimit: "1",
+    exsectionformat: "plain",
     titles: title,
     redirects: ""
   });
@@ -78,6 +81,10 @@ var getInfo = function(title){
     var page = _.first(_.values(body.query.pages));
 
     var data = { title: page.displaytitle };
+
+    if(page.extract && page.extract.length){
+      data.extract = page.extract;
+    }
 
     if(page.thumbnail){
       data.image = page.thumbnail.original;

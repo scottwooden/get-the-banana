@@ -89,8 +89,6 @@ define([
     			
     		});
 
-    	} else {
-    		alert('Enter a name!');
     	}
 
     },
