@@ -328,3 +328,25 @@ section.timer {
 	}
 
 }
+
+.hints {
+
+	transition: all 2s;
+	position: absolute;
+	right: -50px;
+	width: 250px;
+	padding: 30px;
+	color: #BA9315;
+	font-weight: 900;
+	z-index: 2;
+	text-align: right;
+	opacity: 0;
+
+	&.active {
+
+		right: 0;
+		opacity: 1;
+
+	}
+
+}
