@@ -150,10 +150,8 @@ define([
 
     winningTrigger: function(){
 
-      var self = this;
       Globals.Sounds.play("win");
-      $('.answer-feedback').removeClass('correct active').addClass('active win');
-      setTimeout( function() { Globals.Router.navigate("result/win");}, 800);
+      Globals.Router.navigate("result/win")
 
     },
 
@@ -228,7 +226,7 @@ define([
 
     }, 
 
-    resetCountdown: function() {
+    resetCountdown: function(stop) {
 
         var self = this;
 
@@ -236,12 +234,13 @@ define([
 
         Globals.Sounds.stop("rush");
 
-        $('.timer .inner').stop().css({"width": "100%"});
+        $('.timer .inner').stop();
+        $('.timer .inner').css({"width": "100%"});
+
+        if(stop) return;
 
         $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
-
-            self.gameOver();
-
+            if(Globals.Router.currentRoute.indexOf('result') == -1) self.gameOver();
         });
 
         this.hintsInterval = setInterval(function(){
@@ -325,7 +324,8 @@ define([
         if(word == 'Banana') {
           
             this.winningTrigger();
-        
+            this.resetCountdown(true);
+
         } else {
 
             Globals.User.words.add({ title: word });

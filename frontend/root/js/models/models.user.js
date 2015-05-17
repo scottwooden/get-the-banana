@@ -13,17 +13,17 @@ define([
 
     startWords: [
       'Fruit',
-      'Hamster',
-      'Guitar',
-      'Generative art',
-      'Horse',
-      'Tutankhamun',
-      'Sun',
-      'Butterfly',
-      'Milk float',
-      'Guitar',
-      'Vodka',
-      'Roller coaster',
+      // 'Hamster',
+      // 'Guitar',
+      // 'Generative art',
+      // 'Horse',
+      // 'Tutankhamun',
+      // 'Sun',
+      // 'Butterfly',
+      // 'Milk float',
+      // 'Snooker',
+      // 'Vodka',
+      // 'Roller coaster',
     ],
 
     initialize: function(){
