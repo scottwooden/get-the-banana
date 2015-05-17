@@ -41,7 +41,7 @@ define([
         this.$score     = this.$('#user-score');
         this.$timerText = this.$('.timer span');
         this.$hints     = this.$('.hints');
-        this.$hintsList     = this.$hints.find('ul');
+        this.$hintsList = this.$hints.find('ul');
 
         this.addEvents();
 
@@ -163,8 +163,8 @@ define([
 
     	var self = this;
 
-        // $('.start-overlay').fadeOut(100);
-        // return self.refreshWord();
+        $('.start-overlay').fadeOut(100);
+        return self.refreshWord();
 
       Globals.Sounds.play("countdown");
 
@@ -206,8 +206,10 @@ define([
           self.renderWordTrail();
           self.updateSpeechEvents();
           self.$timerText.html('GET TO BANANA FROM ' + word.get("title"));
+          self.updateHeight();
         
         });
+
 
         this.resetCountdown();
 
@@ -223,7 +225,7 @@ define([
 
         $('.timer .inner').stop().css({"width": "100%"});
 
-        $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
+        $('.timer .inner').animate({'width': 0}, 300000, 'linear', function(){
 
             self.gameOver();
 
@@ -237,9 +239,9 @@ define([
 
           self.hintsInterval = setInterval(function(){
             self.updateHints();
-          }, 3000);
+          }, 30000);
 
-        }, 15000);
+        }, 150000);
 
     },
 
@@ -310,6 +312,14 @@ define([
             this.refreshWord();
             
         }
+
+    },
+
+    updateHeight: function() {
+
+      var windowHeight = this.$content.height();
+      console.log(windowHeight);
+      this.$content.find('img').css({"max-height": windowHeight - 200});
 
     },
 
