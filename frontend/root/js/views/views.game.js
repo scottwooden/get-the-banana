@@ -169,14 +169,11 @@ define([
 
     	var self = this;
 
-      $('.start-overlay').fadeOut(100);
-      return self.refreshWord(true);
-
       Globals.Sounds.play("countdown");
 
     	var countdown = 2;
 
-    	$('.countdown').show();
+    	$('.countdown').css({display: "inline-block"});
 
     	var timer = setInterval(function(){
 
@@ -254,7 +251,7 @@ define([
 
           self.hintsInterval = setInterval(function(){
             self.updateHints();
-          }, 2000);
+          }, 2500);
 
         }, 15000);
 
