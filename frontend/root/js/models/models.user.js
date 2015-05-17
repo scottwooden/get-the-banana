@@ -13,15 +13,16 @@ define([
 
     startWords: [
       'Fruit',
-      'Tractor',
-      'Owl',
-      'Hacker',
-      'Buttocks',
-      'Donkey',
-      'London Underground',
-      'Red',
-      'North Pole',
-      'Tyrannosaurus',
+      'Hamster',
+      'Guitar',
+      'Jazz',
+      'Scrotum',
+      'File system',
+      'Tutankhamun',
+      'Feces',
+      'Butterfly',
+      'Elevator',
+      'Milk float',
     ],
 
     initialize: function(){
