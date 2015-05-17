@@ -44,15 +44,19 @@ define([
 
         if(this.current[id]){
           fade ? this.fadeOut(id) : this.current[id].stop().destroy();
+          delete this.current[id];
         }
 
       },
 
       fadeOut: function(id){
 
+        var self = this;
+
         if(this.current[id]){
           $(this.current[id]).animate({ volume: 0 }, 1000, function(){
             this.stop().destroy();
+            delete self.current[id];
           });
         }
 
@@ -61,6 +65,7 @@ define([
       stopAll: function(){
 
         createjs.Sound.stop();
+        this.current = {};
 
       }
 
