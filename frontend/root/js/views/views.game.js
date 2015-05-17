@@ -16,7 +16,8 @@ define([
 
     events: {
     	'click .start-overlay .start': 'clickStart',
-      'keydown .input-answer': 'inputKeydown'
+      'keydown .user-name-input': 'usernameKeydown',
+      'keydown .input-answer': 'inputKeydown',
     },
 
     initialize: function(){
@@ -112,6 +113,12 @@ define([
       }
 
       $(e.currentTarget).val('');
+
+    },
+
+    usernameKeydown: function(e){
+
+      if(e.which == 13) this.clickStart(e);
 
     },
 
@@ -229,9 +236,9 @@ define([
 
           self.hintsInterval = setInterval(function(){
             self.updateHints();
-          }, 1000);
+          }, 4000);
 
-        }, 10000);
+        }, 1000);
 
     },
 
