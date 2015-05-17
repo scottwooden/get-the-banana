@@ -95,6 +95,7 @@ define([
 
     correctMessage: function(word){
 
+      Globals.Sounds.play("correct");
       $('#correct-answer').html(word);
       $('.answer-feedback').toggleClass('active correct');
 
@@ -104,6 +105,7 @@ define([
 
     incorrectMessage: function(word){
 
+      Globals.Sounds.play("incorrect");
       $('#wrong-answer').html(word);
       $('.answer-feedback').toggleClass('active wrong');
 
@@ -114,9 +116,17 @@ define([
     winningTrigger: function(){
 
       var self = this;
-
+      Globals.Sounds.play("win");
       $('.answer-feedback').toggleClass('active win');
-      setTimeout( function() { Globals.Router.navigate("result");}, 500);
+      setTimeout( function() { Globals.Router.navigate("result/win");}, 500);
+
+    },
+
+    gameOver: function() {
+
+      var self = this;
+      Globals.Sounds.play("lose");
+      setTimeout( function() { Globals.Router.navigate("result/lose");}, 500);
 
     },
 
@@ -127,7 +137,7 @@ define([
         $('.start-overlay').fadeOut(100);
         return self.refreshWord();
 
-
+      Globals.Sounds.play("countdown");
     	var countdown = 2;
     	$('.countdown').show();
     	setInterval(function(){
@@ -173,9 +183,11 @@ define([
 
         $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
 
-            self.resetCountdown();
+            self.gameOver();
 
         });
+
+        setTimeout(function(){Globals.Sounds.play("rush")}, 15000);
 
     },
 

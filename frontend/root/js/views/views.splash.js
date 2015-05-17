@@ -8,7 +8,7 @@ define([
 
     templates: {
       'main': template
-    },
+    }, 
 
   });
 

@@ -1,11 +1,20 @@
 <section class="result container text-center">
 
-	<h1>YOU GOT THE BANANA!</h1>
-	<h3>YOU DID IT IN 7 WORDS!</h3>
+	<% if(status == 'win') { %>
+		<h1>YOU GOT THE BANANA!</h1>	
+		<h3>YOU DID IT IN 7 WORDS!</h3>
 
-	<br><br>
-	<img src="images/banana.gif">
-	<br>
-	<a href="#" class="btn-primary">PLAY AGAIN?</a>
+		<br><br>
+		<img src="images/banana.gif">
+		<br>
+		<a href="#" class="btn-primary">PLAY AGAIN?</a>
+	<% } else { %>
+		<h1>GAME OVER</h1>	
+		<h3>BETTER LUCK NEXT TIME?</h3>
 
+		<br><br>
+		<img src="images/banana.gif">
+		<br>
+		<a href="#" class="btn-primary">PLAY AGAIN?</a>
+	<% } %>
 </section>

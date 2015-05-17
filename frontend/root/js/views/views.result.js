@@ -10,6 +10,28 @@ define([
       'main': template
     },
 
+    initialize: function(options){
+
+    	var defaults = {
+    		status: "win"
+    	};
+
+    	options = _.extend(defaults, options);
+
+    	this.status = options.status;
+
+		this._super();
+
+    },
+
+    render: function(){
+
+    	this._super({
+    		status: this.status
+    	});
+
+    },
+
   });
 
 });

@@ -89,7 +89,7 @@
 		color: $white;
 		font-weight: 700;
 
-		ul li {
+		li {
 
 			list-style-type: none;
 			margin: 0;
@@ -147,6 +147,9 @@
 			-ms-transform: rotate(3deg); /* IE 9 */
     		-webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
     		transform: rotate(3deg);
+    		-webkit-box-shadow: 0px 10px 24px -1px rgba(102,77,13,0.5);
+			-moz-box-shadow: 0px 10px 24px -1px rgba(102,77,13,0.5);
+			box-shadow: 0px 10px 24px -1px rgba(102,77,13,0.5);
 		}
 
 	}
@@ -156,6 +159,7 @@
 .answer-input {
 
 	input {
+		margin-top: 30px;
 		background: $white;
 		border-radius: 8px;
 		padding: 10px 15px;

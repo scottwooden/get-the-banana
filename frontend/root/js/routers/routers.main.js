@@ -11,7 +11,7 @@ define([
     routes: {
       'splash' : "splash",
       'game' : "game",
-      'result' : "result",
+      'result/(:status)' : "result",
       '*actions' : "splash"
     },
 
@@ -31,10 +31,12 @@ define([
 
     },
 
-    result: function(){
+    result: function(status){
     
       this.newPage = {
-        view: new ResultView()
+        view: new ResultView({
+          status: status
+        })
       };
 
     }
