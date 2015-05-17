@@ -29,11 +29,17 @@ define([
 
       this.words = new WordsCollection();
 
+      this.addStartWord();
+
+      return this._super();
+
+    },
+
+    addStartWord: function(){
+
       this.words.add({
         title: _.sample(this.startWords)
       });
-
-      this._super();
 
     },
 
@@ -52,6 +58,8 @@ define([
     clear: function(options){
 
       this.words.reset();
+
+      this.addStartWord();
 
       return this._super(options);
 
