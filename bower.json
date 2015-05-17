@@ -12,7 +12,8 @@
     "requirejs-plugins": "~1.0.2",
     "gsap": "~1.16.1",
     "annyang": "~1.6.0",
-    "SoundJS": "~0.6.0"
+    "SoundJS": "~0.6.0",
+    "spin.js": "~2.1.0"
   },
   "private": true
 }
