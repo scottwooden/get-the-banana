@@ -30,7 +30,7 @@ define([
     render: function(){
 
       var route = Globals.User.getTrail();
-      if(this.status == "win") route.push("Banana");
+      if(this.status == "win") route.push("<b>Banana</b>");
 
     	this._super({
     		status: this.status,
