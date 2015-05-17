@@ -32,10 +32,6 @@ define([
 
       this.addStartWord();
 
-      this.on('all', function(e){
-        console.log("e", e);
-      });
-
       return this._super();
 
     },
