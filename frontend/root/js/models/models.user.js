@@ -41,6 +41,12 @@ define([
       return this.words.pluck('title');
 
     },
+
+    getCurrentWord: function(){
+
+      return this.words.last();
+
+    },
     
   });
 
