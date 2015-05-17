@@ -270,11 +270,16 @@ define([
 
     updateHints: function(){
 
+      if(this.$hintsList[0].children.length > 10){
+        if(this.hintsInterval) clearInterval(this.hintsInterval);
+        return;
+      }
+
       this.$hints.addClass('active');
 
       var word = Globals.User.getCurrentWord();
 
-      this.$hintsList.append("<li>" + word.getHint() + "<li>")
+      this.$hintsList.append("<li>" + word.getHint() + "</li>")
 
     },
 
@@ -288,7 +293,7 @@ define([
     selectWord: function(word){
 
         this.$content.addClass('next');
-        
+
         this.clearHints();
 
         Globals.User.increment("score");

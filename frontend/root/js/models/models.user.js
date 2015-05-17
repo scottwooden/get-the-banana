@@ -12,17 +12,19 @@ define([
     },
 
     startWords: [
-      'Fruit',
-      'Hamster',
-      'Guitar',
-      'Jazz',
-      'Trombone',
-      'File system',
-      'Tutankhamun',
-      'Feces',
-      'Butterfly',
-      'Elevator',
-      'Milk float',
+      // 'Fruit',
+      // 'Hamster',
+      // 'Guitar',
+      // 'Jazz',
+      // 'Trombone',
+      // 'File system',
+      // 'Tutankhamun',
+      // 'Feces',
+      // 'Butterfly',
+      // 'Elevator',
+      // 'Milk float',
+      // 'Guitar',
+      'History of the classical guitar'
     ],
 
     initialize: function(){
