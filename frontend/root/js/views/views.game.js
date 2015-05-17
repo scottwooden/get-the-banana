@@ -205,15 +205,6 @@ define([
 
         setTimeout(function(){
 
-<<<<<<< HEAD
-          self.renderContent();
-          self.renderWordTrail();
-          self.updateSpeechEvents();
-          self.$timerText.html('GET THE BANANA FROM ' + word.get("title"));
-          self.updateHeight();
-        
-        });
-=======
           var loader = new Loader();
           self.$el.append(loader.el);
 
@@ -232,7 +223,6 @@ define([
             });
 
           });
->>>>>>> 939af8de005e5fcf08568399bf3f64a2e3e14bc9
 
           self.resetCountdown();
 
