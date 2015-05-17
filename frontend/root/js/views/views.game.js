@@ -39,6 +39,7 @@ define([
         this.$trail     = this.$('.player-one-word-trail ul');
         this.$score     = this.$('#user-score');
         this.$timerText = this.$('.timer span');
+        this.$hints     = this.$('.hints');
 
         this.addEvents();
 
@@ -217,7 +218,12 @@ define([
 
         });
 
-        setTimeout(function(){Globals.Sounds.play("rush")}, 150000);
+        setTimeout(function(){
+
+          Globals.Sounds.play("rush");
+          displayHints();
+
+        }, 150000);
 
     },
 
@@ -261,6 +267,12 @@ define([
             this.refreshWord();
             
         }
+
+    },
+
+    displayHints: function() {
+      
+      this.$hints.addClass('active');
 
     },
 
