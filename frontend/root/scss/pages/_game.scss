@@ -80,6 +80,10 @@
 
 	.player-one-word-trail {
 
+		h1{
+			margin-bottom: 30px;
+		}
+
 		position: absolute;
 		left: 0;
 		width: 250px;
@@ -92,13 +96,10 @@
 
 			list-style-type: none;
 			margin: 0;
-			margin-bottom: 30px;
+			margin-top: 30px;
 			vertical-align: middle;
 			line-height: 27px;
 
-			&:last-child{
-				margin-bottom: 60px;
-			}
 			span.circle {
 				border-radius: 50%;
 				height: 17px;
@@ -108,15 +109,43 @@
 				display: inline-block;
 				vertical-align: middle;
 				margin-right: 10px;
+				position: relative;
 
+				&:before{
+					content: "";
+					position: absolute;
+					left: 4px;
+					width: 1px;
+					border-left: 3px solid #FFF;
+					height: 45px;
+					bottom: 15px;
+				}
 			}
 
-		}
+			&:first-child{
+				span.circle:before{
+					content: none;
+				}				
+			}
 
-		> li {
+			&:last-child{
 
-			span.circle {
-				background: none;
+				margin-top: 60px;
+
+				span.circle {
+					background: none;
+					position: relative;
+					&:before{
+						content: "";
+						position: absolute;
+						left: 4px;
+						width: 1px;
+						border-left: 3px dotted #FFF;
+						height: 70px;
+						bottom: 15px;
+					}
+				}
+
 			}
 
 		}

@@ -41,6 +41,9 @@ define([
         this.$timerText = this.$('.timer span');
         this.$hints     = this.$('.hints');
 
+        console.log("$('.user-name-input')", $('.user-name-input'));
+        $('.user-name-input').focus();
+
         this.addEvents();
 
     },
