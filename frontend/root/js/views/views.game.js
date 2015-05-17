@@ -163,8 +163,8 @@ define([
 
     	var self = this;
 
-        $('.start-overlay').fadeOut(100);
-        return self.refreshWord();
+        // $('.start-overlay').fadeOut(100);
+        // return self.refreshWord();
 
       Globals.Sounds.play("countdown");
 
@@ -223,7 +223,7 @@ define([
 
         $('.timer .inner').stop().css({"width": "100%"});
 
-        $('.timer .inner').animate({'width': 0}, 300000, 'linear', function(){
+        $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
 
             self.gameOver();
 
@@ -237,9 +237,9 @@ define([
 
           self.hintsInterval = setInterval(function(){
             self.updateHints();
-          }, 4000);
+          }, 3000);
 
-        }, 1000);
+        }, 15000);
 
     },
 
