@@ -8,7 +8,7 @@
 - add scoring logic DONE
 - Add logic for winning DONE
 - incorrect / correct overlay DONE
-- loading overlay 
+- loading overlay DONE
 - Create winning screen DONE
 - add saving user to db 
 - add coundown logic 
@@ -23,17 +23,17 @@
 - add some more starting words
 - add route to results screen
 - add hover to start button when entering name
-- fix styling with word trail list
+- fix styling with word trail list DONE
 - design fluff
 - generative bananas
 - remove special characters and words in brackets in links list
-- pre load images 
-- limit hint showing 
+- pre load images DONE
+- limit hint showing DONE
 - limit hint text DONE 
-- fix long title wrapping 
-- no hints after 15 pages 
+- fix long title wrapping DONE
+- no hints after 15 pages DONE
 
 ----------------------
 
-- add transitions
+- add transitions DONE
 - add sound DONE
