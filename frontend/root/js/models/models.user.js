@@ -12,18 +12,17 @@ define([
     },
 
     startWords: [
-      // 'Fruit',
-      // 'Hamster',
-      // 'Guitar',
-      // 'Jazz',
-      // 'Scrotum',
-      // 'File system',
-      // 'Tutankhamun',
-      // 'Feces',
-      // 'Butterfly',
-      // 'Elevator',
-      // 'Milk float',
-      'North Pole'
+      'Fruit',
+      'Hamster',
+      'Guitar',
+      'Jazz',
+      'Scrotum',
+      'File system',
+      'Tutankhamun',
+      'Feces',
+      'Butterfly',
+      'Elevator',
+      'Milk float',
     ],
 
     initialize: function(){
@@ -53,7 +52,7 @@ define([
     clear: function(options){
 
       this.words.reset();
-      
+
       return this._super(options);
 
     },
