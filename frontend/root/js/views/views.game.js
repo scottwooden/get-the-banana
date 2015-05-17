@@ -166,7 +166,7 @@ define([
         word.fetch().done(function(){
         self.renderContent();
           self.renderWordTrail();
-            // self.updateSpeechEvents();
+          self.updateSpeechEvents();
         });
 
         this.resetCountdown();
@@ -211,47 +211,6 @@ define([
     },
 
     updateSpeechEvents: function(){
-
-      var recognition = new webkitSpeechRecognition();
-      // recognition.continuous = true;
-      // recognition.interimResults = true;
-
-      recognition.start();
-
-      var sentence = [];
-
-      recognition.onresult = function(event) {
-
-        console.log("event.results", event.results);
-
-        for (var i = event.resultIndex; i < event.results.length; ++i) {
-
-          var string = _.reduce(event.results, function(string, item){
-            return string + " " + item[0].transcript
-          }, "");
-
-          console.log("string", string);
-
-          // sentence.push(event.results[i][0].transcript);
-          // console.log(event.results[i][0].transcript);
-          // if(event.results[i].isFinal) console.log(sentence.join(" "));
-          // if (event.results[i].isFinal){
-          //   final_transcript += event.results[i][0].transcript;
-          //   final_transcript = final_transcript.split(' ');
-          //   console.log(final_transcript);
-          //   console.log(self.wordChecker(final_transcript, word));
-          // }
-        }
-
-      };
-
-      recognition.onend = function() { 
-
-        recognition.stop();
-        recognition.start();
-        console.log("done");
-
-      }
 
     },
 
