@@ -1,10 +1,11 @@
 define([
   'globals',
   'views/views.master',
+  'views/views.loader',
   'text!templates/game.html',
   'text!templates/game-content.html',
   'text!templates/game-trail.html',
-], function(Globals, Master, template, contentTemplate, trailTemplate){
+], function(Globals, Master, Loader, template, contentTemplate, trailTemplate){
 
   return Master.extend({
 
@@ -95,8 +96,6 @@ define([
     			
     		});
 
-    	} else {
-    		alert('Enter a name!');
     	}
 
     },
@@ -170,8 +169,8 @@ define([
 
     	var self = this;
 
-        $('.start-overlay').fadeOut(100);
-        return self.refreshWord();
+      $('.start-overlay').fadeOut(100);
+      return self.refreshWord(true);
 
       Globals.Sounds.play("countdown");
 
@@ -186,12 +185,9 @@ define([
 
     		if (countdown == -1) {
 
-    			$('.start-overlay').fadeOut(100, function(){
-
-            clearInterval(timer);
-            
-          });
-          self.refreshWord();
+    			$('.start-overlay').remove();
+          clearInterval(timer);
+          self.refreshWord(true);
 
     		}
 
@@ -199,7 +195,7 @@ define([
 
     },
 
-    refreshWord: function(){
+    refreshWord: function(start){
 
         this.$hints.removeClass('active');
         this.$content.removeClass('next active');
@@ -207,8 +203,9 @@ define([
     	  var self = this;
         var word = Globals.User.words.last();
 
-        word.fetch().done(function(){
+        setTimeout(function(){
 
+<<<<<<< HEAD
           self.renderContent();
           self.renderWordTrail();
           self.updateSpeechEvents();
@@ -216,9 +213,30 @@ define([
           self.updateHeight();
         
         });
+=======
+          var loader = new Loader();
+          self.$el.append(loader.el);
 
+          word.fetch().done(function(){
 
-        this.resetCountdown();
+            word.preloadImage().done(function(){
+
+              loader.fadeOut();
+
+              self.renderContent();
+              self.renderWordTrail();
+              self.updateSpeechEvents();
+              self.$timerText.html('GET TO BANANA FROM ' + word.get("title"));
+              self.updateHeight();
+              
+            });
+
+          });
+>>>>>>> 939af8de005e5fcf08568399bf3f64a2e3e14bc9
+
+          self.resetCountdown();
+
+        }, start ? 0 : 800);
 
     }, 
 

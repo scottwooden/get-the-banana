@@ -39,8 +39,10 @@ define([
     getHint: function(){
 
       var shortLinks = _.filter(this.get("links"), function(link){
-        return link.match(/\S+/g).length < 3;
+        return link.match(/\S+/g).length <= 3;
       });
+
+      if(!shortLinks.length) shortLinks = this.get("links");
 
       var word = _.sample(shortLinks);
 
@@ -51,6 +53,22 @@ define([
       return word;
 
     },
+
+    preloadImage: function(){
+
+      var deferred = $.Deferred();
+
+      var img = new Image();
+     
+      img.onload = img.onerror = function(){
+        deferred.resolve();
+      };
+
+      img.src = this.get('image');
+
+      return deferred;
+
+    }
 
   });
 

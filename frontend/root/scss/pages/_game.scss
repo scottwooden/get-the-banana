@@ -56,6 +56,10 @@
 
 }
 
+.load-overlay{
+	z-index: 10;
+}
+
 .game.container {
 
 	bottom: 60px;
@@ -205,6 +209,13 @@
 			font-size: 2.4em;
 			text-transform: uppercase;
 			max-width: 600px;
+			white-space: normal;
+		}
+
+		p{
+			font-size: 0.8em;
+			line-height: 1.6em;
+			white-space: normal;
 		}
 
 		.word-image-container{
