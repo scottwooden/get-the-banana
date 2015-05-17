@@ -60,6 +60,13 @@ define([
       var score = Globals.User.get('score');
       this.$score.html(score);
 
+      console.log(score);
+      if (score > 15) {
+
+        this.$hints.fadeOut(100);
+
+      }
+
     },
 
     clickStart: function(e){
@@ -147,7 +154,7 @@ define([
       var self = this;
       Globals.Sounds.play("win");
       $('.answer-feedback').removeClass('correct active').addClass('active win');
-      setTimeout( function() { Globals.Router.navigate("result/win");}, 2000);
+      setTimeout( function() { Globals.Router.navigate("result/win");}, 800);
 
     },
 
@@ -205,7 +212,7 @@ define([
           self.renderContent();
           self.renderWordTrail();
           self.updateSpeechEvents();
-          self.$timerText.html('GET TO BANANA FROM ' + word.get("title"));
+          self.$timerText.html('GET THE BANANA FROM ' + word.get("title"));
           self.updateHeight();
         
         });

@@ -118,6 +118,7 @@
 			padding-left: 30px;
 
 			span.circle {
+
 				border-radius: 50%;
 				height: 17px;
 				width: 17px;
@@ -129,15 +130,16 @@
 				left: 0;
 				top: 0;
 
-				&:before{
+				&:before {
 					content: "";
 					position: absolute;
 					left: 4px;
 					width: 1px;
 					border-left: 3px solid #FFF;
-					height: 45px;
+					height: 500px;
 					bottom: 15px;
 				}
+			
 			}
 
 			&:first-child{
@@ -172,7 +174,7 @@
 
 	.player-current-word {
 
-		transform: scale(0.8);
+		// transform: scale(0.8);
 		opacity: 0;
 		padding: 30px 0; //250px;
 		left: 250px;
@@ -181,7 +183,7 @@
 		&.active {
 
 			transition: all 0.3s;
-			transform: scale(1);
+			// transform: scale(1);
 			opacity: 1;
 
 		}

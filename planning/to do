@@ -10,8 +10,8 @@
 - incorrect / correct overlay DONE
 - loading overlay 
 - Create winning screen DONE
-- add saving user to db
-- add coundown logic
+- add saving user to db 
+- add coundown logic 
 - add countdown functionality
 - fix game page styling
 - add speech api
@@ -27,11 +27,11 @@
 - design fluff
 - generative bananas
 - remove special characters and words in brackets in links list
-- pre load images
+- pre load images 
 - limit hint showing 
-- limit hint text DONE
-- fix long title wrapping
-- no hints after 15 pages
+- limit hint text DONE 
+- fix long title wrapping 
+- no hints after 15 pages 
 
 ----------------------
 
