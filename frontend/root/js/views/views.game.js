@@ -216,11 +216,13 @@ define([
               self.$timerText.html('GET TO BANANA FROM ' + word.get("title"));
               self.updateHeight();
               
+              self.resetCountdown();
+
             });
 
           });
 
-          self.resetCountdown();
+          self.resetCountdown(true);
 
         }, start ? 0 : 800);
 
