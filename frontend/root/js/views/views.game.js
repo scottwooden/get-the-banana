@@ -35,9 +35,10 @@ define([
 
         this._super();
 
-        this.$content = this.$('.player-current-word');
-        this.$trail = this.$('.player-one-word-trail ul');
-        this.$score = this.$('#user-score');
+        this.$content   = this.$('.player-current-word');
+        this.$trail     = this.$('.player-one-word-trail ul');
+        this.$score     = this.$('#user-score');
+        this.$timerText = this.$('.timer span');
 
         this.addEvents();
 
@@ -181,13 +182,16 @@ define([
 
         $('body').animate({ 'scrollTop': 0 });
 
-    	var self = this;
+    	  var self = this;
         var word = Globals.User.words.last();
 
         word.fetch().done(function(){
-        self.renderContent();
+
+          self.renderContent();
           self.renderWordTrail();
           self.updateSpeechEvents();
+          self.timerText.html('GET TO BANANA FROM '+ )
+        
         });
 
         this.resetCountdown();
