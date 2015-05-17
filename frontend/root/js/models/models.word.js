@@ -34,7 +34,17 @@ define([
 
       return match;
 
-    }
+    },
+
+    getHint: function(){
+
+      var shortLinks = _.filter(this.get("links"), function(link){
+        return link.match(/\S+/g).length < 3;
+      });
+
+      return _.sample(shortLinks);
+
+    },
 
   });
 

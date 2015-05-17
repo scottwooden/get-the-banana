@@ -77,6 +77,7 @@
 		h1 {
 			display: inline-block;
 			font-size: 40px;
+			text-transform: uppercase;
 		}
 	}
 
@@ -380,11 +381,19 @@ section.timer {
 	text-align: right;
 	opacity: 0;
 
+	h1{
+		margin-bottom: 30px;
+	}
+
 	&.active {
 
 		right: 0;
 		opacity: 1;
 
+	}
+
+	li{
+		margin-bottom: 10px;
 	}
 
 }

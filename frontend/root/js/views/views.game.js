@@ -40,9 +40,7 @@ define([
         this.$score     = this.$('#user-score');
         this.$timerText = this.$('.timer span');
         this.$hints     = this.$('.hints');
-
-        console.log("$('.user-name-input')", $('.user-name-input'));
-        $('.user-name-input').focus();
+        this.$hintsList     = this.$hints.find('ul');
 
         this.addEvents();
 
@@ -211,11 +209,11 @@ define([
 
         var self = this;
 
-        $('.timer .inner').stop();
+        if(this.hintsInterval) clearInterval(this.hintsInterval);
 
         Globals.Sounds.stop("rush");
 
-        $('.timer .inner').css({"width": "100%"});
+        $('.timer .inner').stop().css({"width": "100%"});
 
         $('.timer .inner').animate({'width': 0}, 300000, 'linear', function(){
 
@@ -223,12 +221,17 @@ define([
 
         });
 
-        setTimeout(function(){
+        this.hintsInterval = setInterval(function(){
 
+          clearInterval(self.hintsInterval);
           Globals.Sounds.play("rush");
-          displayHints();
+          self.updateHints();
 
-        }, 150000);
+          self.hintsInterval = setInterval(function(){
+            self.updateHints();
+          }, 1000);
+
+        }, 10000);
 
     },
 
@@ -257,6 +260,16 @@ define([
 
     },
 
+    updateHints: function(){
+
+      this.$hints.addClass('active');
+
+      var word = Globals.User.getCurrentWord();
+
+      this.$hintsList.append("<li>" + word.getHint() + "<li>")
+
+    },
+
     selectWord: function(word){
 
         this.$content.addClass('next');
@@ -272,12 +285,6 @@ define([
             this.refreshWord();
             
         }
-
-    },
-
-    displayHints: function() {
-
-      this.$hints.addClass('active');
 
     },
 
