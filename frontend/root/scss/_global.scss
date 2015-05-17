@@ -7,8 +7,10 @@ $white 	: #fff;
 
 html, body {
 
+	width: 100%;
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
 
 }
 
@@ -56,5 +58,39 @@ a.btn-primary {
 
 .text-center {
 	text-align: center;
+}
+
+.row, .col{
+	position: absolute;
+}
+.row {
+	left: 0;
+	right: 0;
+}
+
+.col{
+	top: 0;
+	bottom: 0;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.vertical-center-parent:before{
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+
+.vertical-center{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scroll-y{
+	overflow-y: scroll;
 }
 

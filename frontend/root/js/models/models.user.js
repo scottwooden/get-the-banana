@@ -16,7 +16,7 @@ define([
       'Hamster',
       'Guitar',
       'Jazz',
-      'Scrotum',
+      'Trombone',
       'File system',
       'Tutankhamun',
       'Feces',
