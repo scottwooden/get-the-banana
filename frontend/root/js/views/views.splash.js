@@ -10,6 +10,14 @@ define([
       'main': template
     }, 
 
+    initialize: function(){
+
+      Globals.Sounds.play('start', { loop: -1 });
+
+      return this._super();
+
+    },
+
   });
 
 });

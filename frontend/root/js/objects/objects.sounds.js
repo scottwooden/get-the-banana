@@ -14,6 +14,8 @@ define([
         { src: "Elevator Music.mp3", id: "start" }
       ],
 
+      current: {},
+
       loadSounds: function(){
         
         var deferred = $.Deferred();
@@ -30,9 +32,35 @@ define([
 
       },
 
-      play: function(id){
+      play: function(id, options){
 
-        createjs.Sound.play(id, { interrupt: createjs.Sound.INTERRUPT_ANY });
+        if(this.current[id]) this.stop(id);
+
+        this.current[id] = createjs.Sound.play(id, options);
+
+      },
+
+      stop: function(id, fade){
+
+        if(this.current[id]){
+          fade ? this.fadeOut(id) : this.current[id].stop().destroy();
+        }
+
+      },
+
+      fadeOut: function(id){
+
+        if(this.current[id]){
+          $(this.current[id]).animate({ volume: 0 }, 1000, function(){
+            this.stop().destroy();
+          });
+        }
+
+      },
+
+      stopAll: function(){
+
+        createjs.Sound.stop();
 
       }
 

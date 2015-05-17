@@ -19,6 +19,18 @@ define([
       'keydown .input-answer': 'inputKeydown'
     },
 
+    initialize: function(){
+
+      this._super();
+
+      if(!Globals.Sounds.current['start']){
+        Globals.Sounds.play('start', { loop: -1 });
+      }
+
+      return this;
+
+    },
+
     render: function(){
 
         this._super();
@@ -59,11 +71,16 @@ define([
     		// Globals.User.set('username', username);)
     		// Globals.User.save();
 
-    		// If user name stored start game
-    		$('.contain').fadeOut(200, function(){
+        Globals.Sounds.stop('start', true);
 
-    			$('#user-name').html(username);
-    			self.countdown();
+  			$('#user-name').html(username);
+
+        // If user name stored start game
+        $('.contain').fadeOut(200, function(){
+
+    			setTimeout(function(){
+            self.countdown();
+          }, 500)
     			
     		});
 
@@ -134,15 +151,15 @@ define([
 
     	var self = this;
 
-        $('.start-overlay').fadeOut(100);
-        return self.refreshWord();
-
       Globals.Sounds.play("countdown");
+
     	var countdown = 2;
+
     	$('.countdown').show();
+
     	setInterval(function(){
 
-    		$('.countdown').html(countdown);
+    		$('.countdown').html(countdown || "GO!");
     		countdown--;
 
     		if (countdown == -1) {

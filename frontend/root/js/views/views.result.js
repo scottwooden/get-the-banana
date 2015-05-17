@@ -20,7 +20,7 @@ define([
 
     	this.status = options.status;
 
-		this._super();
+  		return this._super();
 
     },
 
