@@ -3,8 +3,10 @@
 	<div class="vertical-center">
 
 		<% if(data.status == 'win') { %>
+
 			<h1>YOU GOT THE BANANA!</h1>	
-			<h3>YOU DID IT IN <%= data.score %> WORDS!</h3>
+			<h3>YOU DID IT IN <%= data.score %> WORDS</h3>
+			<p><%= data.route.join(" > ") %></p>
 
 			<br><br>
 			<img src="images/banana.gif">
@@ -13,6 +15,7 @@
 		<% } else { %>
 			<h1>GAME OVER</h1>	
 			<h3>BETTER LUCK NEXT TIME!</h3>
+			<p><%= data.route.join(" > ") %></p>
 
 			<br><br>
 			<img src="images/banana.gif">

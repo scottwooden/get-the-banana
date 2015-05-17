@@ -29,9 +29,13 @@ define([
 
     render: function(){
 
+      var route = Globals.User.getTrail();
+      if(this.status == "win") route.push("Banana");
+
     	this._super({
     		status: this.status,
-    		score: Globals.User.get("score")
+    		score: Globals.User.get("score"),
+        route: route
     	});
 
     },
