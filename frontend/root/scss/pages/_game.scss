@@ -37,10 +37,20 @@
 
 		.btn-primary {
 
+			transition: all 0.3s;
+			transform: scale(1);
 			background: transparent;
 			border: 2px solid $white;
 			color: $white;
 			padding: 10px 93px;
+
+			&:hover {
+
+				transform: scale(1.2);
+				background: $white;
+				color: $black;
+
+			}
 
 		}
 

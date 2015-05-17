@@ -3,16 +3,26 @@
 	h1 {
 
 		font-size: 160px;
-    line-height: 145px;
-    margin-bottom: 50px;
+    	line-height: 145px;
+    	margin-bottom: 50px;
 
 	}
 
 	a.btn-primary {
 
+		transition: all 0.3s;
+		transform: scale(1);
 		margin-top: 60px;
 		width: 200px;
 		line-height: 40px;
+
+		&:hover {
+
+			transform: scale(1.2);
+			background: $white;
+			color: $black;
+
+		}
 
 	}
 
