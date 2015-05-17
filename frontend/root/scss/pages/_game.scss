@@ -18,7 +18,7 @@
 
 		input {
 
-			font-family: 'aller_displayregular';
+			font-family: 'allerbold';
 			margin: 40px 0;
 			padding: 15px;
 			background: none;
@@ -27,7 +27,6 @@
 			border: none;
 			border-bottom: 2px solid $white;
 			text-align: center;
-			text-transform: uppercase;
 
 		}
 
@@ -100,6 +99,7 @@
 
 		li {
 
+			font-family: 'allerbold';
 			list-style-type: none;
 			margin: 0;
 			margin-top: 30px;
@@ -219,7 +219,7 @@
 	text-align: center;
 
 	input {
-		font-family: 'aller_displayregular';
+		font-family: 'allerbold';
 		margin-top: 30px;
 		background: $white;
 		border-radius: 8px;
@@ -365,19 +365,25 @@ section.timer {
 
 .hints {
 
-	transition: all 2s;
 	position: absolute;
 	right: -50px;
 	width: 250px;
 	padding: 30px;
 	color: #BA9315;
-	font-weight: 900;
+	font-weight: 700;
 	z-index: 2;
 	text-align: right;
 	opacity: 0;
 
+	ul li {
+
+		font-family: 'allerbold';
+		
+	}
+
 	&.active {
 
+		transition: all 2s;
 		right: 0;
 		opacity: 1;
 
