@@ -150,8 +150,11 @@ define([
 
     winningTrigger: function(){
 
+
+
       Globals.Sounds.play("win");
-      Globals.Router.navigate("result/win")
+      Globals.Router.navigate("result/win");
+      this.resetGame();
 
     },
 
@@ -160,6 +163,7 @@ define([
       var self = this;
       Globals.Sounds.play("lose");
       setTimeout( function() { Globals.Router.navigate("result/lose");}, 500);
+      this.resetGame();
 
     },
 
@@ -174,7 +178,6 @@ define([
     	$('.countdown').css({display: "inline-block"});
 
     	var timer = setInterval(function(){
-
 
         $('.countdown').html(countdown || "GO!");
         countdown--;
@@ -242,7 +245,9 @@ define([
         if(stop) return;
 
         $('.timer .inner').animate({'width': 0}, 30000, 'linear', function(){
+          
             if(Globals.Router.currentRoute.indexOf('result') == -1) self.gameOver();
+
         });
 
         this.hintsInterval = setInterval(function(){
@@ -256,6 +261,13 @@ define([
           }, 2500);
 
         }, 15000);
+
+    },
+
+    resetGame: function() {
+
+      $('.timer .inner').stop();
+      clearInterval(this.hintsInterval);
 
     },
 
@@ -357,7 +369,7 @@ define([
 	  		recognition.interimResults = true;
 
   		recognition.onresult = function(event) { 
-  		  console.log(event) 
+  		 
   		}
   		recognition.start();
 
@@ -374,8 +386,6 @@ define([
   		      if (event.results[i].isFinal) {
   		        final_transcript += event.results[i][0].transcript;
   		        final_transcript = final_transcript.split(' ');
-  		        console.log(final_transcript);
-  		        console.log(self.wordChecker(final_transcript, word));
   		      }
   		    }
 

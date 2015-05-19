@@ -107,3 +107,24 @@ a.btn-primary {
 	overflow-y: scroll;
 }
 
+.explainer {
+
+	font-size: 0.9em;
+	color: #A07B06;
+
+
+	a {
+
+		transition: all 0.3s;
+		color: #A07B06;
+		border-bottom: 2px solid #A07B06;
+
+		&:hover {
+
+			color: $black;
+
+		}
+	}
+
+}
+

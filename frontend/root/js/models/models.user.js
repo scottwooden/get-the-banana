@@ -12,10 +12,9 @@ define([
     },
 
     startWords: [
-      'Fruit',
+      'Harry potter',
       'Hamster',
-      'Guitar',
-      'Generative art',
+      'Art',
       'Horse',
       'Tutankhamun',
       'Sun',
@@ -24,6 +23,9 @@ define([
       'Snooker',
       'Vodka',
       'Roller coaster',
+      'Party',
+      'Facebook',
+      'Alice in wonderland'
     ],
 
     initialize: function(){
