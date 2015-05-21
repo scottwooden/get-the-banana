@@ -1,7 +1,7 @@
 Get The Banana
 ===============
 
-"Get the Banana" is a weekend hackathon project created at ArtHackathon. Created by Chris Brown & Scott Wooden. 
+"Get the Banana" is a weekend hackathon project created at ArtHackathon. Created by [Chris Brown](https://twitter.com/chrisbrown_io) & [Scott Wooden](https://twitter.com/woodenwoody). 
 
 The Game
 --------
