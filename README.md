@@ -1,8 +1,10 @@
 Get The Banana
+===============
 
 "Get the Banana" is a weekend hackathon project created at ArtHackathon. Created by Chris Brown & Scott Wooden. 
 
 The Game
+--------
 In brief it's a wikipedia powered word association game. The objective is to get to the Wikipedia page Banana by typing in related links that would lead you closer to that page. It's based around the popular wiki game of getting from one page to another in the fewest number of clicks through the articles links.
 
 See http://en.wikipedia.org/wiki/Wikipedia:Wiki_Game for more details on the original concept.
