@@ -1,0 +1,12 @@
+{
+    "name": "chris/get-the-banana",
+    "authors": [
+        {
+            "name": "Chris Brown",
+            "email": "chris@chrisbrown.io"
+        }
+    ],
+    "require": {
+        "slim/slim": "^2.6"
+    }
+}
