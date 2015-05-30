@@ -11,7 +11,7 @@ requirejs.config({
     "text": "../../lib/requirejs-text/text",
     "json": '../../lib/requirejs-plugins/src/json',
     "annyang": '../../lib/annyang/annyang',
-    "soundJS": '../../lib/SoundJS/lib/soundjs-0.6.0.min',
+    "soundJS": '../../lib/SoundJS/lib/soundjs-0.6.1.min',
     "spin": '../../lib/spin.js/spin',
     
   },
