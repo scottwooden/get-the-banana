@@ -4,7 +4,7 @@ define([
 
   return Master.extend({
 
-    urlRoot: "/api/search",
+    urlRoot: "/backend/search",
 
     url: function(){
 

@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^/root/   
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /root/$1 [L]
